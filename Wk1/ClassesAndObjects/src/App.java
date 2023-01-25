@@ -1,5 +1,8 @@
 //import statement essentially specify where to find a specific class
+import com.revature.Electric;
+import com.revature.Pikachu;
 import com.revature.Pokemon;
+import com.revature.Thunder;
 
 public class App {
 
@@ -32,5 +35,48 @@ public class App {
 
         Pokemon poke3 = new Pokemon("Ditto");
         System.out.println(poke3.name);
+
+        poke1.setLevel(10);
+        poke1.setLevel(-10);
+
+        System.out.println(poke1.getLevel());
+
+        //Access a static method without creating an object
+        Pokemon.thisIsStatic();
+
+        poke1.health = 10;
+        System.out.println(poke1.health);
+
+        poke2.health = 20;
+        System.out.println(poke1.health);
+        //10 - 1
+        //20 - 4
+        //1020 - 1
+
+        //Casting or type casting
+        double someDouble = 35;
+        
+        System.out.println(someDouble);
+        //We are explicitly telling the compiler that I do not mind the conversion
+        //Explicit casting might result in loss of information
+        int someInt = (int)someDouble;
+
+        System.out.println(someInt);
+
+        //In the event that there is no information loss, conversion is done for you
+        //No need to use casting
+        //Implicit casting
+        someDouble = someInt;
+
+        Electric electr1 = new Electric();
+
+        //Variance - another type of polymorphism
+        Thunder electricPokemon = new Pikachu();
+
+        electricPokemon.noise();
+
+        electricPokemon = new Electric();
+        
+        electricPokemon.noise();
     }
 }

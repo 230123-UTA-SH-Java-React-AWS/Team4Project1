@@ -72,3 +72,10 @@
 * It stores your repository online
 * Mainly used to share your application to multiple people
 * Multiple people can also contribute to the remote repository
+
+# Algorithms
+* A set of instructions that aims to solve a problem or operation
+
+## Time Complexity
+* Measures the growth of your algorithm number of operations
+* 
