@@ -1,7 +1,7 @@
 public class App {
     public static double getAverage(int[] nums) {
         //WRITE YOUR CODE HERE
-        return sum/nums.length;
+        return 0;
     }
 
     //DO NOT TOUCH ANYTHING DOWN HERE
