@@ -1,10 +1,6 @@
 public class App {
     public static double getAverage(int[] nums) {
         //WRITE YOUR CODE HERE
-        double sum = 0;
-        for (int i : nums) {
-            sum += i;
-        }
         return sum/nums.length;
     }
 
