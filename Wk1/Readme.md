@@ -339,3 +339,28 @@ public class MyGenericClass<T> {
 * JDK - Java Development Kit, which provides developer tools like a compiler, debugger, documentation tools, and other command-line utilities.
 * JRE - Java Runtime Environment contains all the runtime libraries that your code will be calling and using
 * JVM - Java Virtual Machine. The JVM is a special program that knows how to execute the programs that you write in Java
+
+## Stack and Heap
+* Stack
+    * Contains primitive values that are specific to a method and references to objects referred from the method that are in a heap
+    * Access to this memory is in Last-In-First-Out (LIFO) order
+* Heap
+    * Heap space is used for the dynamic memory allocation of Java objects and JRE classes at runtime. New objects are always created in heap space.
+    * If heap space is full, Java throws java.lang.OutOfMemoryError
+    * It needs Garbage Collector to free up unused objects
+
+## Garbage Collection
+* The automatic process of removing objects from the heap which have no references to them
+* In lower-level programming languages, memory is manipulated directly in the code, but Java abstracts these details away from the developer by allowing the JVM to handle memory management itself
+* Garbage collection is run in the background by the JVM. There is **no way we can explicitly force garbage collection to happen**
+    * We can suggest GC to collect unused object using System.gc()
+
+## Queue Interface
+* The Queue places objects on a “waiting list”, typically based on First-In-First-Out (FIFO)
+* Useful for storing objects prior to processing
+* Elements are added to the tail of the queue
+* Elements can be "popped" off the frot of the queue
+* Methods include:
+    * add(Object obj) - adds object to queue
+    * peek() - Returns the first Object in line but it will not remove it from the queue
+    * poll() - Return the first Object in line and removes it from the queue
