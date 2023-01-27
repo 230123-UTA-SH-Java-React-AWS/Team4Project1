@@ -228,4 +228,107 @@
 * You used the throws keyword after the method signature
 
 # Test-Driven Development (TDD)
-* 
+* The TDD process consists of writing unit tests first, before the implemented application code has been written
+* The implemented application code can be written to make the test pass 
+* If we mess up somewhere, when the unit tests are run we can pinpoint exactly where the problem lies
+
+## Unit Test
+* Whole idea is to test a single tiny portion of your source code
+    * Hence, Unit is in the name to indicate small
+* The goal of the unit test is to isolate the scope into just that one method or that one function
+    * To make debugging easier to deal with
+
+## JUnit
+* Open-source framework that is used for writing and executing unit tests in Java programming language
+* Annotations are used to support, identify, and execute test method features
+* Assertions are used to check actual output versus expected output
+* AAA
+    * Arrange - Specify what you need for this unit test
+    * Act - Where you specify the actual method that needs to be tested
+    * Assert - Where you validate if the method actually worked as intended
+
+# Generics
+* Enforce compile time safety by allowing you to use parameterized types
+* TLDR it is like a placeholder in a class
+    * Whenever you make an object out of that class, you can specify the datatype to replace every generic from that class
+```Java
+//Every reference of "T" will be replaced depending on the datatype at initialization of this class
+//MyGenericClass<Integer> someObj = new MyGenericClass<>(); - it will replace every "T" into Integer
+//MyGenericClass<String> someObj = new MyGenericClass<>(); - it will replace every "T" into String instead
+public class MyGenericClass<T> {
+  private T instance;
+  
+  // simple generic setter method
+  public void setObject(T object) {
+    this.instance = object;
+  }
+}
+```
+
+# SDLC
+* Software Development LifeCycle
+* Application of standard business practices to building software applications
+## Planning
+* Calculate if the idea is feasible both financially and current technology advancements
+* Lots of meetings and discussion between project leaders, stakeholders, teams, etc.
+* Feedback from customers
+## Define Requirements
+* Actual feasible steps required to get the finished product.
+* Think of features this product will have
+## Design and Prototyping
+* Defining what technologies, you will utilize to create the product
+* There are many different market/companies/products/technologies that offer the same thing but a little bit different
+## Software Development
+* Actual code writing to make the product
+## Testing
+* Creating test cases to check that the finished product can satisfy the defined requirements
+* Best way to verify that your finished product will have all the features you planned in the beginning
+## Deployement
+* Create a way to get your finished product in the hands of the customers
+* Mostly automated for us
+* HOWEVER, this step is very important because it can make or break a product’s impressions
+* Ex: Creating a website or a whole logistical plan to get finished products from the factories to the stores
+## Maintenance and Updates
+* Users may find bugs that needs fixing later
+* We can add future updates to our apps as well
+
+## Waterfall
+* One of the popular SDLC model first introduced in the 1970s that is still used today
+* Each phase needs to be completed in order and will not proceed to the next phase until finish
+* A more linear approach
+* Simple model to follow
+* Rigid and not flexible
+* Slow in development and deploying
+* Each phases are clearly defined and well documented
+
+## Agile
+* The current leading SDLC that most companies follow
+* You focus on a subset of features and go through each phase until you can deploy 
+* Focuses strongly on user experience and feedback
+* Flexible and responsive
+* Fast deployment of product
+* Huge amount of communication required
+* Unclear timelines and deadlines
+
+# HTTP
+* HyperText Transfer Protocol
+* A technique of transmitting data in a particular format, primarily between a server and a browser. It uses an architecture in which a client makes a connection to a server, makes a request, and waits for the response
+
+## HTTP Workflow
+1. The client makes a request to the server
+2. The server creates an appropriate response depending on the request
+3. The server sends the response back to the client
+4. The client's browser will display the response to the client
+
+## HTTP Verb/Method
+* GET - Retrieve data from the server
+* POST - Send data to the server
+* PUT - Update existing data from the server
+* DELETE - Deletes an existing data 
+
+## HTTP Status Code
+* Informational responses (100–199)
+* Successful responses (200–299)
+* Redirection messages (300–399)
+* Client error responses (400–499)
+* Server error responses (500–599)
