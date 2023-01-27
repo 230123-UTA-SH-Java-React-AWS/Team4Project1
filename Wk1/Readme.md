@@ -77,5 +77,97 @@
 * A set of instructions that aims to solve a problem or operation
 
 ## Time Complexity
-* Measures the growth of your algorithm number of operations
-* 
+* Measures the growth of your algorithm number of operations as sample size/input increases
+* Big-Oh notation. Using this notation, we might say, for example, that an algorithm has a running time that is O(n^2) or O(n) or O(log(n)). These notations are read "Big-Oh of n squared," "Big-Oh of n," and "Big-Oh of log n" 
+
+## Common Big O notations
+* O(1) : Constant time
+* O(N) : Linear time
+* O(N^2) : Quadratic time
+* O(log(n)) : Logarithmic time
+
+## Bubble Sort
+* Worst case scenario - Time complexity of O(n^2) 
+* [step by step process of how Bubble sort sorts](https://www.programiz.com/dsa/bubble-sort)
+* [Animation of Bubble Sort](https://visualgo.net/en/sorting)
+
+## Merge Sort
+* Average case scenario - Time complexity of O(n*log(n))
+* [step by step process of how Merge sort sorts](https://www.programiz.com/dsa/merge-sort)
+* [Animation of Merge Sort](https://visualgo.net/en/sorting)
+
+## Linear Search
+* Worst case scenario - Time complexity of O(n)
+* [step by step process of how Linear search searches](https://www.programiz.com/dsa/linear-search)
+* [Animation of both linear and binary search](https://blog.penjee.com/binary-vs-linear-search-animated-gifs/)
+
+## Binary Search
+* Worst case scenario - Time complexity of O(log(n))
+* [step by step process of how Binary search searches](https://www.programiz.com/dsa/binary-search)
+* [Animation of both linear and binary search](https://blog.penjee.com/binary-vs-linear-search-animated-gifs/)
+
+# Java
+* high-level and compiled programming language
+* Strongly-typed - datatypes are enforced and cannot be changed (unless it can be casted)
+* Object-Oriented programming style
+* Platform independent
+* Automatic memory management
+
+## Main method
+* This is the method that is executed at the very beginning of your java app.
+
+## Classes
+* the blueprints for how to create objects that contain a certain state 
+* **this** keyword is used to reference any of the class members of a class
+* **super** keyword is used to reference any of the class members of a parent/super class
+
+### Class members
+* Constructor
+    * When we use the new keyword in order to create an object, the JVM is invoking a special class member called a constructor.
+    * Declares how an object is to be instantiated and initialized from the class 
+* Method
+    * Used to specify a behavior or functionality you want the object to have
+    * Parameters are used to add inputs to a method
+    * Return datatype is used to specify the output of a method
+* Field
+    * Stores information
+    * Usually private to keep encapsulation
+* Getters
+    * Like methods but are specifically responsible for getting information from fields
+    * Allows fields to be readable
+    * Naming convention: setField(datatype field)
+* Setters
+    * Like methods but are specifically responsible for setting information for fields
+    * Allows fields to be writable
+    * Naming convention: getField()
+
+### Static non-access modifier
+* The class or class member belongs to the class
+* static field will share its value across multiple objects
+* static method will be accessible without create an object from the class
+* static class will force every class member within the class to be static as well
+
+## Casting
+* The process of converting a data type to another data type
+### Explicit Casting
+* When the end result of the conversion might result in information loss
+* Must specify (datatype)variableName explicitly
+* Ex: Converting a double into an integer
+### Implicit Casting
+* When the end result will not result in loss of information
+* Your compiler will do the conversion for you
+* Ex: Converting an integer to a double
+
+## Primitive datatypes
+* Datatype is defined by the language itself
+* It stores the value directly into the stack memory
+| Datatype | Memory         | What it stores                |
+|----------|----------------|-------------------------------|
+| boolean  | Depends on JVM | True or False                 |
+| byte     | 8-bit          | numerical, integer values     |
+| short    | 16-bit         | numerical, integral values    |
+| char     | 16-bit         | numerical & single characters |
+| int      | 32-bit         | numerical, integral values    |
+| long     | 64-bit         | numerical, integral values    |
+| float    | 32-bit         | floating values, more precise |
+| double   | 64-bit         | floating values               |
