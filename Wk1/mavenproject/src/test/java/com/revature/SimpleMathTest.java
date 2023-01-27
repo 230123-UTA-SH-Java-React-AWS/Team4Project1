@@ -31,4 +31,21 @@ public class SimpleMathTest {
         //Assert - check if what we got is what we expected
         Assertions.assertEquals(expectedValue, actualValue);
     }
+
+    @Test
+    public void multipleTwoNumbersShouldWork()
+    {
+        //Arrange
+        double num2 = 29;
+        double num1 = 19;
+        double expectedValue = num2*num1;
+        SimpleMath mathObj = new SimpleMath();
+
+        //Act
+        double actualValue = mathObj.multipleTwoNumbers(num1, num2);
+
+        //Assert
+        Assertions.assertNotNull(actualValue);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
 }

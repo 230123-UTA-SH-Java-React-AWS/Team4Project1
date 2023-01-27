@@ -24,8 +24,6 @@
 
   <!-- Dependencies information is stored in <dependencies></dependencies> tag -->
   <dependencies>
-
-
     <dependency>
       <!-- company, organization project, other groups associated with the dependency -->
       <groupId>org.junit.jupiter</groupId>
@@ -45,6 +43,7 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
   </dependencies>
   <build>
 
