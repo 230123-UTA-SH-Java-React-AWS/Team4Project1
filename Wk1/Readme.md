@@ -332,3 +332,10 @@ public class MyGenericClass<T> {
 * Redirection messages (300–399)
 * Client error responses (400–499)
 * Server error responses (500–599)
+
+# Moar Java
+* Things Java is doing at the backend that we don't really see when we run our code
+## JDK, JRE, JVM
+* JDK - Java Development Kit, which provides developer tools like a compiler, debugger, documentation tools, and other command-line utilities.
+* JRE - Java Runtime Environment contains all the runtime libraries that your code will be calling and using
+* JVM - Java Virtual Machine. The JVM is a special program that knows how to execute the programs that you write in Java
