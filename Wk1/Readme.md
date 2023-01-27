@@ -161,6 +161,7 @@
 ## Primitive datatypes
 * Datatype is defined by the language itself
 * It stores the value directly into the stack memory
+```
 | Datatype | Memory         | What it stores                |
 |----------|----------------|-------------------------------|
 | boolean  | Depends on JVM | True or False                 |
@@ -171,3 +172,60 @@
 | long     | 64-bit         | numerical, integral values    |
 | float    | 32-bit         | floating values, more precise |
 | double   | 64-bit         | floating values               |
+```
+
+## Reference datatypes
+* reference variables only store the location of the actual value
+* reference variables are stored in the stack
+* actual object/value is stored in the heap
+* Ex: arrays, Strings, and objects
+
+## Working with operators
+* Check operator demo to see the different types of operators
+
+## Flow Control Statements
+* If statements - checks a condition and execute block of code is condition is satisfied
+    * else if - checks another condition of previous ifs failed
+    * else - executes if none of the if statements executed
+* Switch statements - checks a variable and compares it to several cases
+    * break - keyword needed to stop a case from executing the next case
+    * default - acts like an else in if statements
+* For loop - will iterate multiple times as long as its condition is satisfied
+    * first block will instantiate a temporary variable
+    * second block is the condition being check to loop again
+    * third block is the change of the temporary variable
+* For loop enhanced - will iterate through an array
+    * Easier to read if you just need to go through each element inside of an array
+* While loop - will keep repeating the loop until the condition is no longer satisfied
+    * Useful if you don't know when to stop the loop
+* do-While loop - will execute at least once regardless if the condition was satisfied
+
+## Package and Imports
+* Packages
+    * They are essentially virtual folders that Java utilizies to organize your classes together
+* Import
+    * They will import a specific package so you can utilize the classes that is within that package
+
+## Strings
+* Reference types
+* They are stored in a special place called the **String Pool** which is inside the heap memory
+* String Pools
+    * If there is an existing String that matches in the String Pool, the reference variable will point to the existing value
+    * **Duplicates** will not exist in the String Pool
+
+## Exceptions
+* They are **NOT** Errors
+* **Every exceptions inherits the Exception class**
+* They can be handled by utilizing try-catch statements
+    * You can have multiple catch statements
+    * Ideally, you want the most specific exception first before you become more generic
+* Errors are things that cannot be handled by try-catch statement
+    * Ex: Stackoverflow error
+### Checked Exceptions
+* They are exceptions detected by your compiler and will force you to handle the exception usually by using the try-catch statement
+### Unchecked Exceptions
+* They are exceptions ignored by your compiler and will force another entity that utilizes that method to handle it instead
+* You used the throws keyword after the method signature
+
+# Test-Driven Development (TDD)
+* 
