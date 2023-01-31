@@ -4,6 +4,8 @@
  * This is a multi line comment
  */
 
+insert into pokemon (pokename, pokelevel, health, damage, speed) 
+values('Pikachu', 10, 123, 320, 20)
 ----------------------- DDL or Data Definition Langauge -----------------------
 
 --Create statement will create a table in our schema
@@ -20,6 +22,8 @@ alter table pokemon add column speed Integer
 
 --this will drop/remove a column instead
 alter table pokemon drop column speed
+
+alter table pokemon add column pokeId serial primary key
 
 --Remove the table
 drop table pokemon

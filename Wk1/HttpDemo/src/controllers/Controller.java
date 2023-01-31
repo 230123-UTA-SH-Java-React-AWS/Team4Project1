@@ -1,6 +1,12 @@
 package controllers;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -30,6 +36,8 @@ public class Controller implements HttpHandler{
             case "GET":
                 getRequest(exchange);
                 break;
+            case "POST":
+                postRequest(exchange);
             case "PUT":
                 putRequest(exchange);
                 break;
@@ -66,6 +74,32 @@ public class Controller implements HttpHandler{
 
         OutputStream os = exchange.getResponseBody();
         os.write(someResponse.getBytes());
+        os.close();
+    }
+
+    private void postRequest(HttpExchange exchange) throws IOException
+    {
+        InputStream is = exchange.getRequestBody();
+
+        //StringBuilder class is great for mutable Strings
+        StringBuilder textBuild = new StringBuilder();
+
+        //We will read each character and append (combine) them to our textBuild variable
+        try (Reader reader = new BufferedReader(new InputStreamReader(is, Charset.forName(StandardCharsets.UTF_8.name())))) {
+            int c = 0;
+
+            //Loop to go through each character
+            while((c = reader.read()) != -1)
+            {
+                textBuild.append((char)c);
+            }
+        }
+
+        //Sending a response
+        exchange.sendResponseHeaders(200, textBuild.toString().getBytes().length);
+
+        OutputStream os = exchange.getResponseBody();
+        os.write(textBuild.toString().getBytes());
         os.close();
     }
     

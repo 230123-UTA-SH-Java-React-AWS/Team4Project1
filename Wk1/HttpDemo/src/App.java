@@ -21,8 +21,5 @@ public class App {
 
         server.setExecutor(null); //Extra configuration for your server
         server.start(); //starts your backend server
-
-        List<Integer> obj = new ArrayList<>();
-        Queue
     }
 }
