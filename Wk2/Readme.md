@@ -94,3 +94,61 @@
     * Basically adding an ID in the FK column but that ID doesn't exist anywhere
 * It is possible to completely ignore this safeguard by using ON CASCADE but... I would avoid that as much as possible
 
+## Joins
+* A way to combine two tables together based on a matching condition
+* INNER JOIN - selects all rows from both tables as long as there is a match between the columns. It will ignore non-matching rows
+* LEFT JOIN - returns all records from the left table, and the records that match the condition from the right table.
+* RIGHT JOIN returns all records from the right table, and the records that match the condition from the left table.
+* CROSS JOIN - returns all possible row combinations from each table
+
+## Alias
+* Aliases is used to give a temporary name to a table or a column in a table
+* It provides a very useful feature that allows us to achieve complex tasks quickly.
+* It makes column or table name more readable.
+
+## Scalar Functions
+* Pre-defined functions in SQL
+* The output returned by these functions will always be a single value
+* See sql script for examples
+
+## Aggregate Functions 
+* Provides the output as a single value after performing different operations on a set of values
+* See sql script for examples
+
+# JDBC API
+* Java Database Connectivity 
+* It is a relatively low-level API used to write Java code that interacts with relational databases
+* Don't forget to add the driver dependency for your JDBC!
+    * They helps JDBC interact with a specific DB engine like postgressql
+## Classes & Interfaces used
+* DriverManager class - to make a connection with a database driver
+* Connection interface - represents a physical connection with a database
+* SQLException class - a general exception thrown when something goes wrong when accessing the database
+* Statement interface - used for executing static SQL statements
+* PreparedStatement interface - represents pre-compiled SQL statements
+    * Also helps prevent **SQL Injection**
+* ResultSet interface - represents data returned from the database
+## DAO Design Pattern
+* Using pre-defined just helps prevent sphagetti codes (code that is just disgusting and hard to read)
+* Logically separate the code that accesses the database into Data Access Objects helps make a simple distinction for a class
+* Creating an interface will help enforce the design pattern
+
+# PostgreSql
+* A superset of SQL
+    * Meaning it has all the capabilities of SQL but MOAR
+* TLDR things you won't use normally unless you are a data engineer
+## User-defined functions
+* It is like a method and it can be used to execute multiple SQL statements
+* Like a method, it can only return one value
+* Mainly used for **calculation**, you do not want to use functions to alter tables
+    * Since it doesn't behave like a transaction
+## Triggers
+* It will execute a function depending if an event has happened
+* We will focus on DML events on a given table
+* Can execute a function before or after an event
+* Must supply a pre-defined function that returns a trigger
+## Stored Procedures
+* It is similar to functions but it can have multiple outputs and inputs
+## Sequence
+* Think of our auto_incrementing primary key, that itself is a sequence
+* User-defined schema bound object that produces a sequence of numeric values
