@@ -113,3 +113,101 @@ insert into finger (fingerType, personSSN)
  values('pointerFinger', 2),
  	('thumbFinger', 2),
  	('middleFinger', 3)
+ 	
+----------- Scalar Functions -----------------
+ --Scalar will manipulate each data in a column
+ 
+ --Upper will uppercase each data on the selected column
+ select upper(pokename), pokelevel from pokemon
+ 
+ --Lower will lowercase each data on the selected column
+ select lower(pokename) from pokemon
+ 
+--Length will give the length of the string
+ select length(pokename) from pokemon
+ 
+--Time scalar functions
+ select now();
+
+--------------- Aggregate Functions --------------------
+--Aggregate will combine all the data from that column
+
+--Summation
+select sum(pokelevel) from pokemon
+
+--Average
+select avg(pokelevel) from pokemon
+
+--Minimal
+select min(pokelevel) from pokemon p 
+
+--Maximum
+select max(pokelevel) from pokemon p 
+
+--Count
+select count(pokelevel) from pokemon
+
+
+----------- Group By and Order By --------------
+--Can you give me the summation of all level for each distinct pokemon?
+--Can you order the name as well?
+select pokename, sum(pokelevel) as "summation", count(*) as "How many rows" from pokemon
+group by pokename
+order by summation, pokename
+
+------------------- User-defined functions --------------------
+create or replace function pikachu_was_fainted()
+returns trigger
+language plpgsql
+as $$
+begin
+	DELETE FROM pokemon WHERE pokename = 'Pikachu';
+	return null;
+end $$
+
+
+drop function pikachu_was_fainted()
+
+--Referential Integrity 
+--It ensures that deleting something will not lead to data inconsistency
+--TLDR a foreign key will always point to an existing row
+select pikachu_was_fainted();
+
+
+--------------- Stored Procedure -----------------------
+--It is like a function but it has multiple outputs and inputs
+create or replace procedure proc_create_pokemon(
+	pname varchar,
+	plevel integer,
+	phealth integer,
+	pdamage integer,
+	pspeed integer
+)
+language plpgsql
+as $$
+begin 
+	insert into pokemon(pokename, pokelevel, health, damage, speed) 
+	values(pname, plevel, phealth, pdamage, pspeed);
+end
+$$
+
+call proc_create_pokemon ('Pikachu', 123, 43, 54, 65);
+
+----------------- Triggers -------------------------
+--It will trigger a function when a certain event happens such as insert, delete, update
+--You must supply a pre-made function
+
+--The moment I add a new pokemon in the pokemon table, go ahead and delete all pikachu
+create or replace trigger trig_new_pokemon_remove_all_pikachu
+	after insert on Pokemon --before insert means we are looking at any insert event in Pokemon table 
+							--before means execute this function before you finish the insert
+	for each statement --Will repeat the execution of the selected function depending if you choose statement or row
+	execute function pikachu_was_fainted();
+
+insert into Pokemon(pokename, pokelevel, health, damage, speed)
+	values ('Pikachu', 12, 34, 43, 12)
+	
+---------------- TCL or Transaction Control Language ---------------------
+
+
+	
