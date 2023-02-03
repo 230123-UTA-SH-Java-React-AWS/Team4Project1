@@ -38,7 +38,7 @@
 ### DQL
 * The Data Query Language is the SQL sublanguage used for querying data from the database. It is the major sublanguage used by applications to search, project, filter, join, aggregate and group data for displaying application state
 * SELECT - Retrieves data and displays a **ResultSet**
-* **ResultSet** - it is the result of a query that was executed
+    * **ResultSet** - it is the result of a query that was executed
 ### TCL
 * A Transaction is a set of SQL statements that are executed
 * Unique property in that any failure during the transaction will safely rollback to the state the database was in before the transaction
@@ -73,9 +73,9 @@
 * Ex: One pokemon has many abilities and one abilities can belong to many pokemons
 
 ## Normalization
-* Normalization is the process of efficiently organising data in a database. * * Eliminate redundant data ie to make sure that the same data is not stored twice 
+* Normalization is the process of efficiently organising data in a database. **Eliminate redundant data is to make sure that the same data is not stored twice** 
 * Ensure data dependencies make sense
-### First Normal Form: The first normal form (1NF
+### First Normal Form: The first normal form (1NF)
 * All the data in the tables are atomic. 
 * Must have a primary key
 ### Second Normal Form: Second normal form (2NF)
