@@ -152,3 +152,31 @@
 ## Sequence
 * Think of our auto_incrementing primary key, that itself is a sequence
 * User-defined schema bound object that produces a sequence of numeric values
+
+# Mockito 
+* Mockito is a popular open source framework for mocking objects in software test
+* Using Mockito greatly simplifies the development of tests for classes with external dependencies
+* It allows to define the output of certain method calls
+
+# REST API
+* Representational State Transfer (REST) is an architectural style that defines a set of constraints to be used for creating web services
+    * Web services is essentially applications that is available in the web
+* REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST uses less bandwidth, and is simple and flexible making it more suitable for internet usage
+* All communication done via REST API uses only HTTP requests
+
+## Wonderful Constriants to follow 
+* Client-Server: This constraint operates on the concept that the client and the server should be separate from each other and allowed to evolve individually
+    * Hence we have a backend and a frontend
+* Stateless: REST APIs are stateless, meaning that calls can be made independently of one another, and each call contains all of the data necessary to complete itself successfully
+    * I don't know who you are
+    * Client themselves are the one that keeps up the current state instead of the backend
+* Cache: Because a stateless API can increase request overhead by handling large loads of incoming and outbound calls, a REST API should be designed to encourage the storage of cacheable data
+    * If everyone keeps asking for a list of employees... why not just save it internally until everyone stops asking for it
+* Uniform Interface: The key to the decoupling client from server is having a uniform interface that allows independent evolution of the application without having the application’s services, or models and actions, tightly coupled to the API layer itself
+    * We didn't implement this but every layer should have its designated interface essentially
+    * Main idea so if we change the implementation of a class, it will be an easy solution
+* Layered System: REST APIs have different layers of their architecture working together to build a hierarchy that helps create a more scalable and modular application
+    * We have implemented this, we have designated layers with their corresponding responsibilities
+* Code on Demand: Code on Demand allows for code or applets to be transmitted via the API for use within the application
+    * Rarely a thing nowawadays
+    * Remember the time when you play games in a website, the game has to download certain things to your browser to run? That's code on demand

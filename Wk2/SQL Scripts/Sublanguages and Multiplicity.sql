@@ -114,6 +114,17 @@ insert into finger (fingerType, personSSN)
  	('thumbFinger', 2),
  	('middleFinger', 3)
  	
+----------------- Many to Many --------------
+create table pokemon_ability(
+	pokeId integer references pokemon(pokeId),
+	abId integer references ability(abid)
+)
+
+insert into pokemon_ability 
+values (5, 2),
+	(5,1),
+	(3,1)
+ 	
 ----------- Scalar Functions -----------------
  --Scalar will manipulate each data in a column
  
@@ -208,6 +219,13 @@ insert into Pokemon(pokename, pokelevel, health, damage, speed)
 	values ('Pikachu', 12, 34, 43, 12)
 	
 ---------------- TCL or Transaction Control Language ---------------------
-
-
+	
+--Make sure to put the transaction by itself on another SQL script
+begin;
+	insert into Pokemon(pokename, pokelevel, health, damage, speed)
+		values ('Eevee', 12,23,43,43);
+	
+	insert into Ability(abname, abpower, abpp)
+		values('Take down', 120, 5);
+commit;
 	
