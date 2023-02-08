@@ -8,6 +8,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <!-- This is an example of internal css -->
+    <!-- You want to add multiple styling to multiple HTML elements within the same HTML document (file) -->
+    <!-- Style element will dictate that everything inside of this element will be CSS -->
+    <style>
+        /* This is a comment in css */
+
+        /* 
+            This is an example of id selector
+            But great for applying css for single html elements
+        */
+        #add-red {
+            color: red;
+            font-size: large;
+        }
+
+        /*
+            This is an example of class selector
+            great for selecting multiple HTML elements with differing HTML tags
+        */
+        .add-blue {
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* 
+            This is an example of element selector
+            great for selecting multiple HTML elements with the same tag
+        */
+        p {
+            color: brown;
+        }
+
+        #box-model
+        {
+            margin: 40px;
+
+            border: solid black 5px;
+
+            padding: 40px;
+
+            text-align: center;
+        }
+    </style>
+
+    
 </head>
 
 <!-- Body element it contains the content that we want to display in our browser -->
@@ -100,6 +147,29 @@
         <ul>
             <li>Another section of lists</li>
         </ul>
+    </div>
+
+    <h1>Introduction to CSS</h1>
+
+    <div>
+        <p id="add-red" style="color:pink;" class="add-blue">This is an example of id selector</p>
+        <p class="add-blue make-big">This is an example of class selector</p>
+        <p class="add-blue">This is an example of class selector</p>
+        <p class="add-blue" style="color:pink;">This is an example of class selector</p>
+        <p>This is an example of element selector</p>
+        <p style="color:pink;">This is an example of inline css</p>
+        <p class="make-big">This is an example of external css</p>
+    </div>
+
+    <h3 id="box-model">Box model</h3>
+
+    <h3>CSS Grid</h3>
+
+    <div>
+        <div class="box">box 1</div>
+        <div class="box">box 2</div>
+        <div class="box">box 3</div>
+        <div class="box">box 4</div>
     </div>
 
 </body>
