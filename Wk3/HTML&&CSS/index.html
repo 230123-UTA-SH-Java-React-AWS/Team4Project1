@@ -52,6 +52,56 @@
 
             text-align: center;
         }
+
+        .box {
+            border: 2px solid black;
+            border-radius: 10px;
+            
+            text-align: center;
+            padding: 10%;
+
+            box-shadow: rgb(0, 0, 0, 0.35) 5px 10px 10px;
+        }
+
+        .grid {
+            display: grid; /* It will tell css that you are starting a grid */
+            
+            grid-template-columns: repeat(3, 1fr); /* CSS Grid will auto create more rows if necessary */
+            grid-template-rows: 1fr 1fr;
+
+            gap: 20px;
+            margin: 5%;
+        }
+
+        .box-expand-row {
+            grid-row: span 2;
+        }
+
+        .box-expand-column {
+            grid-column: span 2;
+        }
+
+        /* Must have css selector with animation property */
+        .animate {
+            animation: fade-in-fade-out 5s;
+            opacity: 0;
+        }
+
+        /* Simple animation css */
+        @keyframes fade-in-fade-out {
+            /* The percentage dictate at what time it should have styling wise */
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
 
     
@@ -165,13 +215,15 @@
 
     <h3>CSS Grid</h3>
 
-    <div>
-        <div class="box">box 1</div>
+    <div class="grid">
+        <div class="box box-expand-column flex">Header</div>
         <div class="box">box 2</div>
-        <div class="box">box 3</div>
-        <div class="box">box 4</div>
+        <div class="box-expand-row box">box 3</div>
+        <div class="box box-expand-column">box 4</div>
+        <div class="box box-expand-column">box 5</div>
     </div>
 
+    <div class="animate">Animations</div>
 </body>
 
 </html>
