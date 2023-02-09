@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Using JS with HTML</h1>
+    <p>We can execute functions in our JS script through user events</p>
+    <!-- onclick attribute will listen for user event of a mouse click -->
+    <button onclick="basicFunction()">Click me</button>
+
+    <h1>Using JS to change the contents of a element</h1>
+    <p id="changeme">I want to change the content of this paragraph</p>
+    <button onclick="changeToHello()">Click me to change</button>
+
+    <h1>Using JS to add a new element</h1>
+    <div id="addme">
+        Add it here
+    </div>
+    <button onclick="addNewElement()">Click me to add</button>
+
+    <button onclick="changeCSSStyle()">Change the colors</button>
+    <button onclick="domTraversal()">Click me to show the DOM!</button>
+</body>
+<!-- script element will specify all the JS content within this element -->
+    <script>
+        // This is no longer HTML, this is Java
+
+        function basicFunction() {
+            console.log("Hello World");
+        }
+
+        function changeToHello() {
+            //We must select the element that we want to change
+            //QuerySelector uses CSS selector to find the element
+            let parag = document.querySelector("#changeme");
+
+            console.log(parag);
+
+            //innerHTML property lets us change the content of this paragraph element
+            parag.innerHTML = "The method just changed the paragraph!";
+
+            document.getElementById("changeme").innerHTML = "This is another way to select";
+        }
+
+        function addNewElement() {
+            //Select an element where you want to add the new element
+            let div = document.querySelector("#addme");
+
+            //We have to create the JS object version of the element we want to add
+            let p  = document.createElement("p");
+            p.innerHTML = "Hello this is a created paragraph"
+
+            //We want to append/add this element to the place where we want to add
+            div.append(p);
+        }
+
+        function changeCSSStyle()
+        {
+            //We can select multiple elements and it will put it in an array
+            let paragraphs = document.querySelectorAll("p");
+
+            console.log(paragraphs);
+
+            //We use forEach to select each paragraph object and change its style property
+            paragraphs.forEach((paragraph) => {
+                paragraph.style = "color:red";
+            })
+        }
+
+        function domTraversal() {
+            let body = document.querySelector("body");
+
+            //childNodes - Will select all the elements within that element
+            childNodes =  body.childNodes;
+
+            console.log(childNodes);
+
+            let div = childNodes[17];
+
+            let paragraphs = div.childNodes;
+
+            paragraphs.forEach((p) => {
+                p.style = "color:red";
+            })
+
+            //parentNode - Will select the parent element of the child element
+            let html = body.parentNode;
+
+            console.log(html);
+        }
+
+        console.log("This is outside of the function")
+    </script>
+
+</html>
