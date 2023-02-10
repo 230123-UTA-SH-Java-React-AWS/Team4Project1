@@ -126,3 +126,84 @@
 * They're often used to create simple lambda expressions by referencing existing methods
 * Compiler will understand that you want to execute that method
 
+# HTML
+* Hypertext Markup Language
+* Another markup language so that means it is just telling the computer what to do and not compiling it into machine code
+* Very similar to xml (our pom.xml files) but HTML is used to define the structure of our webpages
+* Our browsers are essentially experts at reading this files and interpreting it to display something on the browser
+* We are currently on version HTML 5
+
+## HTML elements
+* so like XML, it uses tags to define what something should be displayed and instead of calling them "tags" we also call them HTML elements
+* They are, for the most part, a basic graphical unit of something you want to display/structure on your web page
+
+## HTML Tags
+* Don't confuse with HTMl elements although they are used synonymously online
+* HTML element is the actual unit while HTML tag is used to refer to that HTML element
+* Ex: paragraph HTML element will display long text in your website and you use `<p> <\p>` HTML tag to display it
+
+
+### Inline vs Block elements
+* Block elements will add the element in a new line in HTML
+* Inline elements will add the element in the same line as the previous element as long as there is enough space
+
+## HTML attributes
+* They are used to provide extra information that the tag can use
+* Ex: img tag using src attribute to find a specific image to display
+
+## Web Accessiblity
+* In the past only a computer has access to a website and so usually websites are created for a pc only. That's not the case anymore.
+* So Web accessiblity is configuring your website in a way so it is also readable beyond pc users such as phone, tablets, gaming consoles, etc. 
+* This is usually done by manipulating CSS 
+
+# CSS
+* Cascading Style Sheets
+    * Cascading is in the name because it will cascade each rule and keep on adding on until there isn't any rules left
+* A way to stop making your website looking like it came from the 90s
+
+## CSS Selectors
+* Before applying styles everywhere, we need a way to select specific or group of HTMl elements first so we give them their own type of look
+* There are three basic fundamental selectors we should keep in mind:
+1. Element selector - When you want to select multiple elements of the same tag
+2. Class selector - When you want to select multiple elements of differing tag by using the class attribute
+3. Id selector - When you want to select one (mostly) or a couple elements using the id attribute
+4. Child selector - When you want to select nested elements
+    * Uses ">" syntax 
+5. Universal selector - When you want to select all of the elements
+    * Uses "*" syntax
+
+## Different ways to include CSS
+* Inline CSS
+    * Applies CSS to a single element
+    * It uses the style attribute
+    * Has the highest priority
+* Internal CSS
+    * Applies CSS by using the style tag inside of a HTML doc
+    * Used to apply multiple css to multiple elements
+* External CSS
+    * Creating an external .css file to apply css to multiple HTML docs (you can just apply it to one HTML but that kind of defeats the purpose of using an external css)
+    * HTML doc must use the link tag to reference the external css
+    * Used to apply multiple css to multiple elements in multiple HTML docs
+        * So useful to create a universal theme of your website
+
+## CSS Specificity
+* Key thing is the term "Specificity"
+* This will determine what style we should apply to a particular element because sometimes some styling will collide with another
+* General rule: 
+    * Inline css will have a very high priority
+    * Id selector will have the second priority
+    * Class selector will have the third
+    * Element selector will have the last
+
+## CSS Box Model
+* A way to enlarge/separate/resize your elements into the right size and spacing
+* From inside to outside: Content > Padding > Border > Margin
+
+## CSS Grid
+* A way to put elements in a grid like system
+* https://css-tricks.com/snippets/css/complete-guide-grid/
+
+## CSS Flexbox
+* Bootstrap uses this feature extensively
+* https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
