@@ -240,3 +240,73 @@ console.log(true+1);
 console.log(false+1);
 
 console.log(typeof(NaN));
+
+
+console.log("========== Default Parameters =============");
+
+//Default parameters, allows parameters to have a default value if none was given during invoke
+
+function someFunction123(Param1 = 1, Param2 = 1) {
+    console.log(Param1 + Param2);
+}
+
+someFunction123(10);
+
+console.log("============= Spread Operator =============");
+
+//Spread Operator will allow us to have an array become individual elements
+//Useful for adding arrays as a multiple parameters
+//Useful for combining arrays together
+
+let arr2 = [2, 5];
+
+someFunction123(...arr2);
+
+let arr3 = [5, 6, 7];
+
+let arr4 = [...arr2, ...arr3];
+
+console.log(arr4);
+
+console.log("============= Closures =================");
+//TLDR this is how JS used to be when encapsulation was not a thing
+//We have no access modifiers
+//A way to hide variables using function scope to hide them
+//Using an IIFE is actually the nicer looking syntax than not using IIFEs
+//TLDR, we now have private variables with closure
+
+let money = 100;
+
+function withdraw(amount) {
+    //Validation to prevent negative money
+    if (money-amount >= 0) {
+        money = money-amount;
+    }
+}
+
+//However, we can just manipulate the variable anyway
+money = -100;
+
+//IIFE
+//Immediately Invoked Function Expression
+const withdraw2 = (function (pamount) {
+    //Private variable essentially since outside of this IIFE no one has access to it
+    //We manipulated variable scopes to achieve this
+    let money2 = 1000;
+
+    //We are actually just returning a function we made
+    //NOT the IIFE
+    return function (pamount) {
+        if (money2-10 >= 0) {
+            money2 = money2-pamount;
+        }
+
+        return money2;
+    }
+})();
+
+console.log(withdraw2(20));
+
+money2 = -100;
+
+console.log(withdraw2(30));
