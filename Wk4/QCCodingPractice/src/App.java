@@ -1,5 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import Solution.Solution;
 import Solution.TestCase;
@@ -41,27 +45,27 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        List<TestCase> testCases = new ArrayList<>();
+        Map<TestCase, String> testCases = new HashMap<>();
 
-        testCases.add(new TestCase(new int[]{3, 5, 1}, new int[]{5, 5, 1}, 20));
-        testCases.add(new TestCase(new int[]{1, 2, 1}, new int[]{1, 1, 1}, 10));
-        testCases.add(new TestCase(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, new int[]{1, 5}, 100));
-        testCases.add(new TestCase(new int[]{5, 5}, new int[]{5, 5}, 100));
-        testCases.add(new TestCase(new int[]{10}, new int[]{1, 20}, 100));
-        testCases.add(new TestCase(new int[]{10}, new int[]{1, 20}, 1));
-        testCases.add(new TestCase(new int[]{20, 1, 32, 10}, new int[]{21, 4, 43, 12}, 10000));
+        testCases.put(new TestCase(new int[]{3, 5, 1}, new int[]{5, 5, 1}, 20), "Employee 2");
+        testCases.put(new TestCase(new int[]{1, 2, 1}, new int[]{1, 1, 1}, 10), "Employee 1");
+        testCases.put(new TestCase(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, new int[]{1, 5}, 100), "Employee 1");
+        testCases.put(new TestCase(new int[]{5, 5}, new int[]{5, 5}, 100), "Employee 1");
+        testCases.put(new TestCase(new int[]{10}, new int[]{1, 20}, 100), "Employee 1");
+        testCases.put(new TestCase(new int[]{10}, new int[]{1, 20}, 1), "Employee 2");
+        testCases.put(new TestCase(new int[]{20, 1, 32, 10}, new int[]{21, 4, 43, 12}, 10000), "Employee 2");
 
-        for (TestCase testCase : testCases) {
+        for (Entry<TestCase, String> testCase : testCases.entrySet()) {
 
-            String yourSol = WhoIsRicher(testCase.E1, testCase.E2, testCase.B), mineSol = Solution.WhoIsRicher(testCase.E1, testCase.E2, testCase.B);
-
-            if (yourSol.equals(mineSol)) {
+            String yourSol = WhoIsRicher(testCase.getKey().E1, testCase.getKey().E2, testCase.getKey().B);
+            System.out.println(testCase.getKey());
+            if (yourSol.equals(testCase.getValue())) {
                 System.out.println("Test case passes");
             }
             else
             {
                 System.out.println("Test case failed");
-                System.out.println("Expected - " + mineSol);
+                System.out.println("Expected - " + testCase.getValue());
                 System.out.println("Actual - " + yourSol);
             }
 

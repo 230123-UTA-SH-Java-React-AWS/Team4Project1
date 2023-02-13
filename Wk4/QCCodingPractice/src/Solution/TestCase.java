@@ -1,5 +1,7 @@
 package Solution;
 
+import java.util.Arrays;
+
 public class TestCase {
     public int[] E1;
     public int[] E2;
@@ -10,4 +12,11 @@ public class TestCase {
         E2 = e2;
         B = b;
     }
+
+    @Override
+    public String toString() {
+        return "TestCase [B=" + B + ", E1=" + Arrays.toString(E1) + ", E2=" + Arrays.toString(E2) + "]";
+    }
+
+    
 }
