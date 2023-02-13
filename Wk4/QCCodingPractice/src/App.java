@@ -46,7 +46,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Map<TestCase, String> testCases = new HashMap<>();
 
-        testCases.put(new TestCase(new int[]{3, 5, 1}, new int[]{5, 5, 1}, 20), "Employee 2");
+        testCases.put(new TestCase(new int[]{5, 6, 1}, new int[]{3, 1, 1}, 10), "Employee 1");
         testCases.put(new TestCase(new int[]{1, 2, 1}, new int[]{1, 1, 1}, 10), "Employee 1");
         testCases.put(new TestCase(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, new int[]{1, 5}, 100), "Employee 1");
         testCases.put(new TestCase(new int[]{5, 5}, new int[]{5, 5}, 100), "Employee 1");
