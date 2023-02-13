@@ -17,7 +17,7 @@ public class App {
 
         Employee 1 will always be the first one to get paid
 
-        Determine who will have the most money. Output the the one with the most money. Given a tie, just give the money E1 has.
+        Determine who will have the most money. Output the the one with the most money. Given a tie, just output "Employee 1"
 
         Constraints:
         E1 elements > 0
