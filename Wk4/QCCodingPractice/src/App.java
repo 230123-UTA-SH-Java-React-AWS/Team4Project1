@@ -69,6 +69,13 @@ public class App {
             }
 
             System.out.println("========================");
+
+
+            int x = 0;
+
+            if ( (x = 6) > 0) {
+                System.out.println("Will this execute?");
+            }
         }
     }
 }
