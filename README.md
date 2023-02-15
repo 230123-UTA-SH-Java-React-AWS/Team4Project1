@@ -6,6 +6,14 @@ I pushed today's notes to our repo main branch.
 
 Feel free to study the syntax for practice.
 
+Looks like Treyvon has started the User Profile.
+
+Jahi, you can start on login and register, for now just setup the backend and make sure it can access the DB like in proj0.
+
+Chudier and Keyshawn, you too can start working on tracking income and expenses.
+
+Check with Jahi and Treyvon to get an idea of how to start.
+
 Have a good night everyone.
 
 ## 02/14/2023 3:21pm, EST
