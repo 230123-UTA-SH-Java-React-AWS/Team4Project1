@@ -1,7 +1,15 @@
 export interface Pokemon {
-    img:string,
+    sprites?: {
+        front_shiny:string
+    },
     name:string,
-    level:number,
-    health:number,
-    damage:number
+    id:number,
+    stats?: Stat[],
+    damage?:number,
+    health?:number,
+    img?:string
+}
+
+export interface Stat {
+    base_stat:number
 }

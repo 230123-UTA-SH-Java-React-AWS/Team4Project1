@@ -8,11 +8,11 @@ import "./PokemonBox.css";
 function PokemonBox(props: Pokemon) {
 
     return <div className="box">
-        <img src={props.img}/>
+        <img src={props.sprites?.front_shiny}/>
         <h4>{props.name}</h4>
-        <p>Level: {props.level}</p>
-        <p>Health: {props.health}</p>
-        <p>Damage: {props.damage}</p>
+        <p>Id: {props.id}</p>
+        <p>Health: {props.stats?.[0].base_stat}</p>
+        <p>Damage: {props.stats?.[1].base_stat}</p>
     </div>
 }
 

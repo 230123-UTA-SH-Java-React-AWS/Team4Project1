@@ -29,7 +29,7 @@ function App() {
     damage:10,
     health:100,
     img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/25.png",
-    level:1
+    id:1
   }
 
   let listOfPokemon:Pokemon[] = [
@@ -38,19 +38,19 @@ function App() {
       damage:10,
       health:100,
       img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/female/25.png",
-      level:1
+      id:1
     },
     {
       damage:10,
       health:10,
-      level: 2,
+      id: 2,
       name:"Cyndaquil",
       img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/155.png"
     },
     {
       damage:20,
       health:300,
-      level:20,
+      id:20,
       img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/393.png",
       name:"Piplup"
     }
