@@ -1,0 +1,15 @@
+.box {
+    max-width: 50%;
+    margin: 10px;
+    border: 2px solid rgb(80, 75, 75, 0.35);
+    border-radius: 10px;
+
+    padding: 5%;
+}
+
+.grid {
+    max-width: 100% !important;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+}
