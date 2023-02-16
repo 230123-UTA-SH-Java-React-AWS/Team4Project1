@@ -3,6 +3,7 @@ package com.revature.controller;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -19,7 +20,23 @@ import com.sun.net.httpserver.HttpExchange;
 public class UserProfile implements HttpHandler {
     private UserService service = new UserService();
 
+    private void optionsRequest(HttpExchange exchange) {
+        try {
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "OPTIONS, PUT");
+
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "*");
+
+            exchange.sendResponseHeaders(202, -1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void putRequest(HttpExchange exchange) {
+        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+
         InputStream is = exchange.getRequestBody();
         StringBuilder stringBuilder = new StringBuilder();
         ObjectMapper mapper = new ObjectMapper();
@@ -54,6 +71,9 @@ public class UserProfile implements HttpHandler {
         String verb = exchange.getRequestMethod();
 
         switch (verb) {
+            case "OPTIONS":
+                optionsRequest(exchange);
+                break;
             case "PUT":
                 putRequest(exchange);
                 break;

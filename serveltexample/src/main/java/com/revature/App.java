@@ -10,7 +10,7 @@ import java.net.InetSocketAddress;
  * Hello world!
  */
 public final class App {
-    private static final int PORT = 8001;
+    private static final int PORT = 8000;
 
     private App() {
     }
@@ -24,7 +24,7 @@ public final class App {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
-            server.createContext("/userProfile", new UserProfile());
+            server.createContext("/profile", new UserProfile());
 
             server.setExecutor(null);
             server.start();
