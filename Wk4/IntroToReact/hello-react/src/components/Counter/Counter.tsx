@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Counter() {
     //The parameter on useState() function will give the default starting value of the state
@@ -16,6 +16,11 @@ function Counter() {
         setShow(true);
         console.log(show); //There is a tendency for setting states to have a delayed affect, console.log might still show the previous value
     }
+
+    //When you have very important things to setup before or after you finish rendering your component
+    useEffect(() => {
+        console.log("A variable was changed within this component!");
+    });
 
     // if (!show) {
     //     return <button onClick={showCounter}>Show Counter</button>
