@@ -3,14 +3,6 @@ import '../../App.css';
 import './Profile.css';
 import axios from 'axios';
 
-interface User {
-    fname?:string,
-    lname?:string,
-    address?:string,
-    username?:string,
-    email?:string,
-}
-
 const Profile = () => {
     function submit() {
         const fname = document.querySelector<HTMLInputElement>('#fname')?.value;
