@@ -56,15 +56,19 @@ function App() {
     }
   ]
 
+  function dummyFunction(someParam:string) {
+    
+  }
+
   return (
     <div className="App">
-      {/* <header className="App-header">
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and something else.
         </p>
 
-        {/* Everytime you want to reference something from JS to HTLM use {} 
+       {/* Everytime you want to reference something from JS to HTLM use {}  */}
         <p>{someDiv}</p>
 
         {divElement}
@@ -82,17 +86,14 @@ function App() {
 
       <Counter />
 
-      <PokemonBox img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png" name="Bulbasaur" damage={120} health={1000} level={10} />
-      <PokemonBox {...pikachu}/>
+      <PokemonBox img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png" name="Bulbasaur" damage={120} health={1000} id={10} giveName={dummyFunction}/>
+      <PokemonBox {...pikachu} giveName={dummyFunction}/>
       
       {
         listOfPokemon.map(pokemon => {
-          return <PokemonBox {...pokemon} key={pokemon.name}/>
+          return <PokemonBox {...pokemon} key={pokemon.name} giveName={dummyFunction}/>
         })
-      } */}
-
-      <PokemonList />
-
+      }
     </div>
   );
 }

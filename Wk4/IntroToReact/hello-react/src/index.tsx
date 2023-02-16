@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PokemonList from './components/PokemonList/PokemonList';
+import NavBar from './components/NavBar/NavBar';
+import { Provider } from 'react-redux';
+import { store } from './shared/Redux/store';
+
 
 /*
   Index.tsx is the main entry point of your website
@@ -18,8 +24,20 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* This is the App component being referenced to display */}
-    <App />
+    <Provider store={store}>
+      {/* BrowserRouter starts the routing, this is what will switch between components */}
+      <BrowserRouter>
+        <NavBar />
+
+          {/* Routes will hold many Route components that has its own path and component to display */}
+          <Routes>
+            <Route path="/" element={<App />}/>
+            <Route path="/pokeList" element={<PokemonList />}/>
+          </Routes>
+        <div>Footer</div>
+      </BrowserRouter>
+      
+    </Provider>
   </React.StrictMode>
 );
 
