@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { Pokemon } from "../../models/Pokemon";
 import PokemonBox from "../PokemonBox/PokemonBox";
 import "./PokemonList.css";
 import axios from "axios";
 
+/*
+    useContext() hook will help supply any child components with a value setup from the parent component
+*/
+
+export const textTheme = createContext("");
+
 function PokemonList() {
-    
+
     const Pokemon:Pokemon = {
         name:"Pikachu",
         damage:10,
@@ -15,6 +21,8 @@ function PokemonList() {
     }
 
     const [listOfPoke, setListOfPoke] = useState<Pokemon[]>([]);
+
+    const [count, setCounter] = useState(0);
 
     function submitPokemon(){
         let pokename = document.querySelector<HTMLInputElement>("#pokename")?.value;
@@ -36,23 +44,25 @@ function PokemonList() {
     }
 
     return <div>
-        {/* Pokemon name form */}
-        <div className="box">
-            <form >
-                <label className="form-label">Pokemon Name</label>
-                <input id="pokename" className="form-control" type="text"/>
-            </form>
+        <textTheme.Provider value="red"> 
+            {/* Pokemon name form */}
+            <div className="box">
+                <form >
+                    <label className="form-label">Pokemon Name</label>
+                    <input id="pokename" className="form-control" type="text"/>
+                </form>
 
-            <button className="btn btn-primary" style={{margin:10}} onClick={submitPokemon}>Submit</button>
-        </div>
+                <button className="btn btn-primary" style={{margin:10}} onClick={submitPokemon}>Submit</button>
+            </div>
 
-        <div className="box grid">
-            {
-                listOfPoke.map(pokemon => {
-                    return <PokemonBox {...pokemon} key={pokemon.name} giveName={getPokeName}/>
-                })
-            }
-        </div>
+            <div className="box grid">
+                {
+                    listOfPoke.map(pokemon => {
+                        return <PokemonBox {...pokemon} key={pokemon.name} giveName={getPokeName} counter={count} increment={() => {setCounter(count+1)}}/>
+                    })
+                }
+            </div>
+        </textTheme.Provider>
     </div>
 }
 
