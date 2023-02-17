@@ -8,6 +8,9 @@ import PokemonList from './components/PokemonList/PokemonList';
 import NavBar from './components/NavBar/NavBar';
 import { Provider } from 'react-redux';
 import { store } from './shared/Redux/store';
+import ClassComponent from './components/ClassComponent';
+import UncontrolledComponent from './components/UncontrolledComponent';
+import ControlledComponent from './components/ControlledComponent';
 
 
 /*
@@ -33,6 +36,9 @@ root.render(
           <Routes>
             <Route path="/" element={<App />}/>
             <Route path="/pokeList" element={<PokemonList />}/>
+            <Route path="/classComponent" element={<ClassComponent />}></Route>
+            <Route path="/uncontrol" element={<UncontrolledComponent />}></Route>
+            <Route path="/control" element={<ControlledComponent />}></Route>
           </Routes>
         <div>Footer</div>
       </BrowserRouter>
