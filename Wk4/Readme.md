@@ -1,3 +1,85 @@
+# S.O.L.I.D Principles
+* They are five design principles intended to make software designs more understandable, flexible, and maintainable
+    * Kinda like the OOP pillars, but it is just rules to follow to write better code
+## Single Responsible Principle
+* A class should have one and only one reason to change
+* If one class has more responsibility, just segregate them into many classes 
+* Ex: Software Engineer class should just manage anything related to creating a program and shouldn't also have the responsiblity to manage financial forms. Instead, segragate the two class and create a Accountant class that will hold that responsiblity
+## Open/Closed Principle
+* A class should be open for extensions but closed for modification
+* It just means you can add new funcitonality without changing existing code
+* A great way to do this is uing interfaces
+    * Such as us using dependency injection with interfaces
+    * Or using Imenu interface and all our code we wrote in program.cs works just fine with any of our new C# classes
+## Liskov Substitution Principle
+* Derived class should be substitutable for their base class implementation
+* It just means derived classes should not behave in such a way that it will not cause problems when used instead of a base class
+* One way to avoid breaking is using the base class implementation as well as your derived class implementation
+## Interface Segregation Principle
+* You should not be forced to implement methods that you don't need in an interface
+* Just segregate the interface into multiple interfaces
+## Dependency Inversion Principle
+* High and low level modules should depend on abstractions but not on each other
+* If a class uses the design and implementaiton of another class, it raises the risk that change one class could break the other class
+* To fix, we must both let them depend on abstractions 
+
+# Design Pattern
+* They are reusable solution that will solve the problems that occurs pretty frequently while coding
+* Essentially, some people saw that problem keeps happening across multiple coders and decided to standardize a solution every time you come across to that problem to make your life easier
+* They are some of the best practice a programmer can do to solve common problems while designing your application
+## Singleton Pattern
+* This pattern revolves around creating one concurrent object of a class (So only one object exists while the application runs)
+* This singleton class provides a way to let other classes have direct access to the single object
+* Just think of a universal object that gives access to everyone
+### Advantage
+* Provides a global point of access from multiple classes
+* It is easy to maintain since there is only one instance of that class
+### Disadvantage 
+* Very difficult to unit testing since it has global access
+* Definitely do not put any security sensitive information in a singleton
+
+# Node.js
+* It is a free and open-source JavaScript interpreter that allows us to run JS outside of a web browser
+* Platform independent 
+    * It can run on any OS you utilize
+* Uses Google's chrome V8 engine
+
+## Node Package Manager (NPM)
+* It is similar to Maven, it can manage your dependencies and also grab them from the internet
+* But unlike using pom.xml, it uses package.json file
+* It will also store all of our dependencies in a folder called **node_modules**
+
+# TypeScript (TS)
+* It is an open-source language developed by Microsoft
+* It suppose object-oriented programming (a bit better)
+* It is a **superset** of JavaScript
+    * All this means that Typescript has everything JavaScript has but it has more methods/tools (Ex: you have access modifiers, you have interfaces, etc.)
+* It is strictly typed
+    * Probably one of the best things about TS
+
+## Transpilation process
+* It is the process of converting our TS file into a JS
+* All browsers (so far) only support JavaScript files and have no plans to change it to supporting TS any time soon. So to make TypeScript readily available for use for any web browsers, they created this transpilation process
+
+## TS Datatypes
+* Everything from JS
+* Any
+* Tuple
+* Enums
+* Never - Used for error handling
+    * If you are interested, essentially if you place this with a function/method, it means that this function will never return anything. Void still returns "no value" while Never will never return anything.
+    * So mainly used for error exceptions since that will end the program and not "complete" the function completely or in more rare cases, you want a function that will never end
+* Void - Used for function/methods to indicate it will return nothing
+
+## Access Modifiers
+* public - access everywhere
+* private - access within the class
+* protected - access within the class and subclasses
+
+## Access modifiers in TS
+* public - access everywhere
+* protected - access within the class and its subclasses
+* private - access only within the class
 # Introduction to React
 * It is a frontend Javascript library to develop websites
     * Notice it is just a library, hence we will need to add more and more dependencies to utilize other functionalities provided by other libraries
@@ -176,3 +258,13 @@
 * It is like taking a slice of your Redux Store
 
 # React Forms
+* With handling forms, you need to be familiar with onChange and onSubmit event listeners
+* onChange - it will execute whenever the input element's value was changed
+* onSubmit - it will execute whenever the form was submitted
+## Uncontrolled component
+* A component that doesn't do any validation on its states
+* you use a React Ref
+## Controlled component
+* A component that does proper validation through the use of JS/TS logic rather than relying on just HTML purely
+* You use functions to add additional validation rather than just HTML
+* You should mostly use controlled components to enforce validation
