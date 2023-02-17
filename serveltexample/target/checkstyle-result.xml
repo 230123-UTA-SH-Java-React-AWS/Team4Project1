@@ -48,4 +48,6 @@
 <error line="14" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="23" column="9" severity="error" message="Each variable declaration must be in its own statement." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
 </file>
+<file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\test\java\com\revature\AppTest.java">
+</file>
 </checkstyle>

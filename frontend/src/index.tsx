@@ -13,7 +13,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/profile' element={<Profile />} />

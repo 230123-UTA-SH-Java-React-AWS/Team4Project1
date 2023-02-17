@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Futura';
+    src: local('Futura'),
+
+    url('./Futura-Std-Bold.otf') format('opentype'),
+    url('./Futura-Std-Book.otf') format('opentype'),
+    url('./Futura-Std-Heavy.otf') format('opentype'),
+    url('./Futura-Std-Medium.otf') format('opentype');
+}
