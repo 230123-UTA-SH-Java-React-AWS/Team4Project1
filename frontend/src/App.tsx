@@ -4,8 +4,41 @@ import Nav from './component/Nav/Nav';
 import navBackgroundImg from './resources/images/vector-jan-2021-19_generated.jpg';
 import { loremIpsum } from 'react-lorem-ipsum';
 import { MdAccountBalanceWallet, MdAccountBalance, MdAccountBox } from 'react-icons/md';
+import aboutBackgroundImg from './resources/images/vecteezy_businessman-hand-working-with-finances-about-cost-and__23.jpg';
+import React, { useRef, useEffect, useState } from 'react';
+import { hover } from '@testing-library/user-event/dist/hover';
 
-const App = () =>{
+const App = () => { 
+
+  const [isOver, setIsOver] = useState<boolean>(false);
+  const [isOut, setIsOut] = useState<boolean>(false);
+  const animatedDiv = useRef<HTMLDivElement>(null);
+
+  const useAnimateDiv = (animatedDiv:HTMLDivElement | null) => {
+    useEffect(() => {
+      if(animatedDiv) {
+        if(isOver) {
+          animatedDiv.style.width = '310px';
+          setIsOut(false);
+        } 
+        
+        if (isOut) {
+          animatedDiv.style.width = '20px';
+          setIsOver(false);
+        }
+      }
+    }, [isOver, isOut])
+  }
+
+  useAnimateDiv(animatedDiv.current);
+  
+  const handleIsOver = () => {
+    setIsOver(true);
+  }
+
+  const handleIsOut = () => {
+    setIsOut(true);
+  }
 
   return (
     <main className="main">
@@ -22,15 +55,56 @@ const App = () =>{
         <div className='features'>
           <div className='feature-group'>
             <span className='feature-icon'><MdAccountBalanceWallet style={{ fill: 'url(#orange-gradient)' }}/></span>
-            {loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}
+            <p>{loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}</p>
           </div>
           <div className='feature-group'>
             <span className='feature-icon'><MdAccountBalance style={{ fill: 'url(#orange-gradient)' }}/></span>
-            {loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}
+            <p>{loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}</p>
           </div>
           <div className='feature-group'>
             <span className='feature-icon'><MdAccountBox style={{ fill: 'url(#orange-gradient)' }}/></span>
-            {loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}
+            <p>{loremIpsum({avgWordsPerSentence: 20, avgSentencesPerParagraph: 1})}</p>
+          </div>
+        </div>
+      </section>
+      <section className='about-section'>
+        <div className='image-container' style={{backgroundImage: `url(${aboutBackgroundImg})`}}></div>
+        <div className='text-container'>
+          <h2>About Us</h2>
+          <p>{loremIpsum({avgWordsPerSentence: 22, avgSentencesPerParagraph: 1})}</p>
+          <h4>Who we are</h4>
+          <p>{loremIpsum({avgWordsPerSentence: 15, avgSentencesPerParagraph: 1})}</p>
+        </div>
+      </section>
+      <section className='services-section'>
+        <div className='text-container'>
+          <h2>Services</h2>
+          <p>{loremIpsum({avgWordsPerSentence: 16, avgSentencesPerParagraph: 1})}</p>
+          <div className='contact-us-container'>
+            <h6 className='contact-us' onMouseOver={() => handleIsOver()} onMouseOut={() => handleIsOut()}>Want to get in touch? Contact us here</h6>
+            <div className='contact-us-div' ref={animatedDiv}></div>
+          </div>
+        </div>
+        <div className='services'>
+          <div className='service-group'>
+            <span className='service-icon'></span>
+            <h4>Filler Text</h4>
+            <p>{loremIpsum({avgWordsPerSentence: 18, avgSentencesPerParagraph: 1})}</p>
+          </div>          
+          <div className='service-group'>
+            <span className='service-icon'></span>
+            <h4>Filler Text</h4>
+            <p>{loremIpsum({avgWordsPerSentence: 18, avgSentencesPerParagraph: 1})}</p>
+          </div>        
+          <div className='service-group'>
+            <span className='service-icon'></span>
+            <h4>Filler Text</h4>
+            <p>{loremIpsum({avgWordsPerSentence: 18, avgSentencesPerParagraph: 1})}</p>
+          </div>          
+          <div className='service-group'>
+            <span className='service-icon'></span>
+            <h4>Filler Text</h4>
+            <p>{loremIpsum({avgWordsPerSentence: 18, avgSentencesPerParagraph: 1})}</p>
           </div>
         </div>
       </section>

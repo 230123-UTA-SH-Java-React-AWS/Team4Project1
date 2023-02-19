@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.45.1">
 <file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\main\java\com\revature\App.java">
-<error line="6" column="1" severity="error" message="Extra separation in import group before &apos;java.io.IOException&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
-<error line="20" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="4" column="1" severity="error" message="Wrong order for &apos;com.revature.controller.UserLogin&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="7" column="1" severity="error" message="Extra separation in import group before &apos;java.io.IOException&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\main\java\com\revature\controller\UserLogin.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="5" column="1" severity="error" message="Extra separation in import group before &apos;java.io.BufferedReader&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="15" column="1" severity="error" message="Extra separation in import group before &apos;org.codehaus.jackson.map.ObjectMapper&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="17" column="1" severity="error" message="Extra separation in import group before &apos;com.revature.model.User&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="17" column="1" severity="error" message="Wrong order for &apos;com.revature.model.User&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="21" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="33" column="42" severity="error" message="&apos;202&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="59" column="46" severity="error" message="&apos;200&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="63" column="46" severity="error" message="&apos;401&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
 <file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\main\java\com\revature\controller\UserProfile.java">
 <error line="5" column="1" severity="error" message="Extra separation in import group before &apos;java.io.BufferedReader&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
@@ -33,21 +45,24 @@
 <error line="37" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 </file>
 <file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\main\java\com\revature\service\UserService.java">
-<error line="6" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
-<error line="9" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="13" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
-<error line="19" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
-<error line="25" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
-<error line="31" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
-<error line="37" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
-<error line="43" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="5" column="1" severity="error" message="Extra separation in import group before &apos;com.revature.model.User&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="5" column="1" severity="error" message="Wrong order for &apos;com.revature.model.User&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="8" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="11" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="17" column="15" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="19" column="11" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="23" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="27" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="33" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="39" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="45" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="51" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+<error line="57" column="17" severity="error" message="Nested if-else depth is 2 (max allowed is 1)." source="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
 </file>
 <file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\main\java\com\revature\util\ConnectionUtil.java">
 <error line="7" column="1" severity="error" message="Class ConnectionUtil should be declared as final." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
 <error line="7" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="14" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="23" column="9" severity="error" message="Each variable declaration must be in its own statement." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
-</file>
-<file name="C:\Users\eugen\Documents\Revature\Team4Project1\serveltexample\src\test\java\com\revature\AppTest.java">
 </file>
 </checkstyle>

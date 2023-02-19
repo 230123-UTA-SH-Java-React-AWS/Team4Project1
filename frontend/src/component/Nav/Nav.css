@@ -16,6 +16,11 @@
   margin-top: 30px;
   margin-right: 40px;
   cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+#nav-menu-icon:hover {
+  color: rgb(243, 106, 38);
 }
 
 #nav {
@@ -32,21 +37,27 @@
 #nav > a {
   text-decoration: none;
   font-size: 20px;
-  padding: 30px;
+  padding: 40px 30px;
   color: rgb(31, 31, 37);
 }
 
 #nav > a:hover {
   background-color: rgb(243, 106, 38);
   color: rgb(184, 179, 170);
+  border-radius: 64px;
   transition: 0.5s all ease;
 }
 
 .nav-menu-close-icon {
   margin-left: auto;
   font-size: 30px;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-right: 40px;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
   cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.nav-menu-close-icon:hover {
+  color: rgb(243, 106, 38);
 }

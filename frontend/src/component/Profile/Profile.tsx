@@ -3,8 +3,13 @@ import '../../App.css';
 import './Profile.css';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
+import InputField from '../InputField/InputField';
+import { selectUser } from '../Login/UserSlice';
+import { useAppSelector } from '../../shared/Redux/hook';
 
 const Profile = () => {
+    const user = useAppSelector(selectUser);
+    
     const [fname, setFname] = useState<string>('');
     const [lname, setLname] = useState<string>('');
     const [address, setAddress] = useState<string>('');
@@ -23,9 +28,6 @@ const Profile = () => {
     
     function handleSubmit(event:React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
-        // const fname = document.querySelector<HTMLInputElement>('#fname')?.value;
-        // const lname = document.querySelector<HTMLInputElement>('#lname')?.value;
-        // const address = document.querySelector<HTMLInputElement>('#address')?.value;
 
         const username = 'test_user';
         const email = 'test@test.com';
@@ -54,21 +56,10 @@ const Profile = () => {
     return (
         <main className='main'>
             <Nav />
-            <form>
-                <div className="form-group">
-                     <label htmlFor='fname' className='form-label'>First Name</label>
-                    <input id='fname' onChange={(e) => handleFname(e)} className='form-control' type='text' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='lname' className='form-label'>Last Name</label>
-                    <input id='lname' onChange={(e) => handleLname(e)} className='form-control' type='text' />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='address' className='form-label'>Address</label>
-                    <input id='address' onChange={(e) => handleAddress(e)} className='form-control' type='text' />
-                </div>
-                {/* <label className='form-label'>Username</label>
-                <input id='username' className='form-control' type='text' /> */}
+            <form className='form'>
+                <InputField inputId='fname' labelValue='First Name' changeAction={(e) => handleFname(e)} placeholder={user.fname}/>
+                <InputField inputId='lname' labelValue='Last Name' changeAction={(e) => handleLname(e)} placeholder={user.lname}/>
+                <InputField inputId='address' labelValue='Address' changeAction={(e) => handleAddress(e)} placeholder={user.address}/>
 
                 <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
             </form>

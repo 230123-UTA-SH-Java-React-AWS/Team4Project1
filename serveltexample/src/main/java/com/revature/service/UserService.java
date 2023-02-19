@@ -1,10 +1,24 @@
 package com.revature.service;
 
+import java.util.Optional;
+
 import com.revature.model.User;
 import com.revature.repository.UserRepository;
 
 public class UserService {
     private UserRepository repository = new UserRepository();
+
+    public Optional<User> findUser(User user) {
+        User foundUser = repository.findUser(user);
+
+        if (foundUser.getEmail() != null) {
+            if (foundUser.getPassword().equals(user.getPassword())) {
+                return Optional.of(foundUser);
+            } else
+                return Optional.ofNullable(null);
+        } else
+            return Optional.ofNullable(null);
+    }
 
     public boolean updateUser(User user) {
         User foundUser = repository.findUser(user);

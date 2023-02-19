@@ -1,6 +1,7 @@
 package com.revature;
 
 import com.revature.controller.UserProfile;
+import com.revature.controller.UserLogin;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ public final class App {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
+            server.createContext("/login", new UserLogin());
             server.createContext("/profile", new UserProfile());
 
             server.setExecutor(null);
