@@ -67,15 +67,17 @@ class Game extends React.Component {
   }
 }
 
-class Info extends React.Component {
+class Login extends React.Component {
   render() {
     return (
-      <div class="container">
-        <div class="row">
-          <div>
-            <button type="button" class="btn btn-primary btn-sm">Register</button>
-            <button type="button" class="btn btn-primary btn-sm">Login</button>
-          </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <label>Login</label>
+          <input type="text" class="form-control" placeholder="Email" aria-label="Login" />
+          <label>Password</label>
+          <input type="text" class="form-control" placeholder="" aria-label="Password" />
+          <br />
+          <input type="button" class="btn btn-secondary btn-sm" value="Login" />
         </div>
       </div>
     )
@@ -84,11 +86,11 @@ class Info extends React.Component {
 
 // ========================================
 //here we render the components to the index.html
-const root = ReactDOM.createRoot(document.getElementById("root"));
-const body = ReactDOM.createRoot(document.getElementById("test1"));
+//const root = ReactDOM.createRoot(document.getElementById("root"));
+const test1 = ReactDOM.createRoot(document.getElementById("test1"));
 
-root.render(<Game />);
+//test1.render(<Game />);
 
-body.render(<Info />);
+test1.render(<Login />);
 
 
