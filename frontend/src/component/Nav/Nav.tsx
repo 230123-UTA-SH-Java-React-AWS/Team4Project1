@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import './Nav.css';
 import Logo from '../../resources/images/rev-logo.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -10,34 +10,16 @@ import { useAppSelector } from '../../shared/Redux/hook';
 const Nav = () => {
     const user = useAppSelector(selectUser);
      
-    const [showNav, setShowNav] = useState<boolean>(false);
-    const navRef = useRef<HTMLDivElement>(null);
-    
-    const useChangeHeight = (navRef:HTMLDivElement | null ) => {
-        useEffect(() => {
-            if (navRef) {
-                if (showNav) {
-                    navRef.style.maxHeight = '300px';
-                } else {
-                    navRef.style.maxHeight = '0';
-                }
-            }
-        }, [showNav]);
-    }
-    useChangeHeight(navRef.current);
+    const [navHeight, setNavHeight] = useState<string>('0');
 
-    const handleShowNav = (navRef:HTMLDivElement | null) => {
-        setShowNav(!showNav);
-        // if(navRef) {
-        //     if (showNav) navRef.style.maxHeight = '300px';
-        //     else navRef.style.maxHeight = '0';
-        // }
+    const handleOnClick = () => {
+        setNavHeight(navHeight == '0' ? '300px' : '0');
     }
 
     return (
         <nav className='nav-container'>
             <img src={Logo} className='logo' />
-            <div id='nav' ref={navRef}>
+            <div className='nav' style={{maxHeight: navHeight}}>
                 <Link to='/'>Home</Link>
                 {
                     user.id === 0 ? (
@@ -46,9 +28,9 @@ const Nav = () => {
                         <Link to='/profile'>Profile</Link>
                     )
                 }
-                <span className='nav-menu-close-icon' onClick={() => handleShowNav(navRef.current)}><AiOutlineClose /></span>
+                <span className='nav-menu-close-icon' onClick={() => handleOnClick()}><AiOutlineClose /></span>
             </div>
-            <span id='nav-menu-icon' onClick={() => handleShowNav(navRef.current)}><GiHamburgerMenu /></span>
+            <span className='nav-menu-icon' onClick={() => handleOnClick()}><GiHamburgerMenu /></span>
         </nav>);
 }
 

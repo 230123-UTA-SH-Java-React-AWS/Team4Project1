@@ -5,39 +5,18 @@ import navBackgroundImg from './resources/images/vector-jan-2021-19_generated.jp
 import { loremIpsum } from 'react-lorem-ipsum';
 import { MdAccountBalanceWallet, MdAccountBalance, MdAccountBox } from 'react-icons/md';
 import aboutBackgroundImg from './resources/images/vecteezy_businessman-hand-working-with-finances-about-cost-and__23.jpg';
-import React, { useRef, useEffect, useState } from 'react';
-import { hover } from '@testing-library/user-event/dist/hover';
+import { useState } from 'react';
 
 const App = () => { 
 
-  const [isOver, setIsOver] = useState<boolean>(false);
-  const [isOut, setIsOut] = useState<boolean>(false);
-  const animatedDiv = useRef<HTMLDivElement>(null);
-
-  const useAnimateDiv = (animatedDiv:HTMLDivElement | null) => {
-    useEffect(() => {
-      if(animatedDiv) {
-        if(isOver) {
-          animatedDiv.style.width = '310px';
-          setIsOut(false);
-        } 
-        
-        if (isOut) {
-          animatedDiv.style.width = '20px';
-          setIsOver(false);
-        }
-      }
-    }, [isOver, isOut])
-  }
-
-  useAnimateDiv(animatedDiv.current);
+  const [divWidth, setDivWidth] = useState<string>('20px');
   
   const handleIsOver = () => {
-    setIsOver(true);
+    setDivWidth('310px');
   }
 
   const handleIsOut = () => {
-    setIsOut(true);
+    setDivWidth('20px');
   }
 
   return (
@@ -82,7 +61,7 @@ const App = () => {
           <p>{loremIpsum({avgWordsPerSentence: 16, avgSentencesPerParagraph: 1})}</p>
           <div className='contact-us-container'>
             <h6 className='contact-us' onMouseOver={() => handleIsOver()} onMouseOut={() => handleIsOut()}>Want to get in touch? Contact us here</h6>
-            <div className='contact-us-div' ref={animatedDiv}></div>
+            <div className='contact-us-div' style={{width: divWidth}}></div>
           </div>
         </div>
         <div className='services'>

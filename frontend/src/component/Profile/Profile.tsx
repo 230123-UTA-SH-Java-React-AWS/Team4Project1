@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../App.css';
 import './Profile.css';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
 import InputField from '../InputField/InputField';
-import { selectUser } from '../Login/UserSlice';
-import { useAppSelector } from '../../shared/Redux/hook';
+import { selectUser, setUser } from '../Login/UserSlice';
+import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 
 const Profile = () => {
     const user = useAppSelector(selectUser);
@@ -14,30 +14,36 @@ const Profile = () => {
     const [lname, setLname] = useState<string>('');
     const [address, setAddress] = useState<string>('');
 
-    function handleFname(event:React.ChangeEvent<HTMLInputElement>) {
+    const [isDisabled, setIsDisabled] = useState<boolean>(true);
+
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (fname.trim().length > 0 || lname.trim().length > 0 || address.trim().length > 0 ) {
+            setIsDisabled(false);
+        } else setIsDisabled(true)
+    }, [fname, lname, address])
+
+    const handleFname = (event:React.ChangeEvent<HTMLInputElement>) => {
         setFname(event.currentTarget.value);
     }
 
-    function handleLname(event:React.ChangeEvent<HTMLInputElement>) {
+    const handleLname = (event:React.ChangeEvent<HTMLInputElement>) => {
         setLname(event.currentTarget.value);
     }
 
-    function handleAddress(event:React.ChangeEvent<HTMLInputElement>) {
+    const handleAddress = (event:React.ChangeEvent<HTMLInputElement>) => {
         setAddress(event.currentTarget.value);
     }
     
-    function handleSubmit(event:React.MouseEvent<HTMLButtonElement>) {
+    const handleSubmit = (event:React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-
-        const username = 'test_user';
-        const email = 'test@test.com';
 
         const data = {
             fname: fname,
             lname: lname,
             address: address,
-            username: username,
-            email: email
+            email: user.email
         }
 
         const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
@@ -49,10 +55,13 @@ const Profile = () => {
         };
         axios.put(`http://localhost:8000/profile`, data, config)
         .then( (res) => {
-            console.log(res.data);
+            dispatch(setUser(res.data));
+        })
+        .catch( (err) => {
+            console.log(err);
         })
     }
-
+    
     return (
         <main className='main'>
             <Nav />
@@ -61,7 +70,7 @@ const Profile = () => {
                 <InputField inputId='lname' labelValue='Last Name' changeAction={(e) => handleLname(e)} placeholder={user.lname}/>
                 <InputField inputId='address' labelValue='Address' changeAction={(e) => handleAddress(e)} placeholder={user.address}/>
 
-                <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+                <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)} disabled={isDisabled}>Submit</button>
             </form>
         </main>);
 };
