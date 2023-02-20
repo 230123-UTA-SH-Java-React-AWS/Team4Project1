@@ -10,8 +10,8 @@ const NewAccount = () => {
     const user = useAppSelector(selectUser);
 
     const [name, setName] = useState<string>('');
-    const [balance, setBalance] = useState<string>('');
-    const [type, setType] = useState<string>('');
+    const [balance, setBalance] = useState<number>(0);
+    const [type, setType] = useState<string>('CHECKING');
 
     const navigate = useNavigate();
 
@@ -20,28 +20,28 @@ const NewAccount = () => {
     }
 
     const handleBalance = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setBalance(event.currentTarget.value);
+        if (+event.currentTarget.value >= 0) {
+            setBalance(+event.currentTarget.value);
+        }
     }
 
     const handleType = (event:React.ChangeEvent<HTMLSelectElement>) => {
         setType(event.currentTarget.value);
     }
 
-    const handleSubmit = (event:React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const data = {
             userId: user.id, 
             name: name,
             balance: balance,
-            type:type
+            type: type
         }
 
-        const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
         const config = {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
-                'Content-Length': contentLength
             }
         };
         axios.put(`http://localhost:8000/accounts/new-account`, data, config)
@@ -52,24 +52,26 @@ const NewAccount = () => {
             console.log(err);
         })
     }
+
+    const handleCancel = () => {
+        navigate('/accounts');
+    }
     
     return (
         <main className='main'>
             <Nav />
-            <form className='form'>
-                <InputField inputId='name' labelValue='Account Name' changeAction={(e) => handleName(e)} />
-                <div className='form-group'>
-                    <label htmlFor='balance' className='form-label'>Initial Account Balance</label>
-                    <input id='balance' onChange={(e) => handleBalance(e)} className='form-control' type='number' />
-                </div>
+            <form className='form' onSubmit={(e) => handleSubmit(e)}>
+                <InputField inputId='name' labelValue='Account Name' changeAction={(e) => handleName(e)} placeholder='Name your account'required={true}/>
+                <InputField inputId='balance' labelValue='Initial Account Balance' inputType='number' changeAction={(e) => handleBalance(e)} inputDefault={balance}/>
                 <div className='form-group'>
                     <label htmlFor='type' className='form-label'>Account Type</label>
-                    <select id='type' onChange={(e) => handleType(e)} className='form-control'>
+                    <select id='type' onChange={(e) => handleType(e)} className='form-control' value={type}>
                         <option value='CHECKING'>CHECKING</option>
                         <option value='SAVING'>SAVING</option>
                     </select>
                 </div>
-                <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+                <button className='btn btn-primary' type='submit' >Submit</button>
+                <button className='btn btn-secondary' type='button' onClick={() => handleCancel()}>Cancel</button>
             </form>
         </main>
     )

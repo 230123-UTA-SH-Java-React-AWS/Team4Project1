@@ -36,7 +36,6 @@ public class UserService {
             }
         }
 
-        System.out.println(user.getAddress());
         if (!user.getAddress().isEmpty()) {
             if (!user.getAddress().equals(foundUser.getAddress())) {
                 repository.updateUser(foundUser.getId(), "address", user.getAddress());

@@ -19,17 +19,14 @@ const Accounts = () => {
                 id: user.id, 
             }
 
-            const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
             const config = {
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
-                    'Content-Length': contentLength
                 }
             };
             axios.post(`http://localhost:8000/accounts`, data, config)
             .then( (res) => {
                 dispatch(setAccounts(res.data));
-                console.log(user.accounts);
             })
             .catch( (err) => {
                 console.log(err);
@@ -44,7 +41,7 @@ const Accounts = () => {
         <main className='main'>
             <Nav />
             <div className='accounts'>
-                {user.accounts.map(account => (<Account accountName={account.name} accountType={account.type} accountBalance={account.balance} />))}
+                {user.accounts.map(account => (<Account key={account.id} accountName={account.name} accountType={account.type} accountBalance={account.balance} />))}
             </div>
             <button className='btn btn-primary' type='button' onClick={(e) => handleNavigate(e)}>New Account</button>
         </main>

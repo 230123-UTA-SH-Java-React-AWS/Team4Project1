@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import Nav from '../Nav/Nav';
 import InputField from '../InputField/InputField';
 import axios from 'axios';
-import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
-import { selectUser, setUser , setDefault } from './UserSlice';
+import { useAppDispatch } from '../../shared/Redux/hook';
+import { setUser } from './UserSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const user = useAppSelector(selectUser);
-
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [badRequest, setBadRequest] = useState<string>('');
@@ -24,7 +22,7 @@ const Login = () => {
         setPassword(e.currentTarget.value);
     }
 
-    const handleSubmit = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const data = {
@@ -32,11 +30,9 @@ const Login = () => {
             password: password
         }
 
-        const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
         const config = {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
-                'Content-Length': contentLength
             }
         };
         axios.post(`http://localhost:8000/login`, data, config)
@@ -45,6 +41,7 @@ const Login = () => {
             navigate('/');
         })
         .catch((err) => {
+            console.log(err);
             setBadRequest('Invalid Email or Password');
         })
     }
@@ -52,11 +49,11 @@ const Login = () => {
     return (
         <main className='main'>
             <Nav />
-            <form className='form'>
-                <InputField inputId='email' labelValue='Email' changeAction={(e) => handleEmail(e)} />
-                <InputField inputId='password' labelValue='Password' changeAction={(e) => handlePassword(e)} />
+            <form className='form' onSubmit={(e) => handleSubmit(e)}>
+                <InputField inputId='email' labelValue='Email' inputType='email' changeAction={(e) => handleEmail(e)} required={true}/>
+                <InputField inputId='password' labelValue='Password' inputType='password' changeAction={(e) => handlePassword(e)} required={true}/>
 
-                <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)}>Login</button>
+                <button className='btn btn-primary' type='submit'>Login</button>
                 <p className='bad-request'>{badRequest}</p>
             </form>
         </main>

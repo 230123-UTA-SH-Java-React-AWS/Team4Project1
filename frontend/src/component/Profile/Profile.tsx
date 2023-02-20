@@ -8,6 +8,8 @@ import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 
 const Profile = () => {
     const user = useAppSelector(selectUser);
+
+    const formRef = useRef<HTMLFormElement>(null);
     
     const [fname, setFname] = useState<string>('');
     const [lname, setLname] = useState<string>('');
@@ -35,7 +37,7 @@ const Profile = () => {
         setAddress(event.currentTarget.value);
     }
     
-    const handleSubmit = (event:React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const data = {
@@ -45,11 +47,9 @@ const Profile = () => {
             email: user.email
         }
 
-        const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
         const config = {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
-                'Content-Length': contentLength
             }
         };
         axios.put(`http://localhost:8000/profile`, data, config)
@@ -59,17 +59,20 @@ const Profile = () => {
         .catch( (err) => {
             console.log(err);
         })
+
+        event.currentTarget.reset();
+        setIsDisabled(true);
     }
     
     return (
         <main className='main'>
             <Nav />
-            <form className='form'>
+            <form className='form' onSubmit={(e) => handleSubmit(e)}>
                 <InputField inputId='fname' labelValue='First Name' changeAction={(e) => handleFname(e)} placeholder={user.fname}/>
                 <InputField inputId='lname' labelValue='Last Name' changeAction={(e) => handleLname(e)} placeholder={user.lname}/>
                 <InputField inputId='address' labelValue='Address' changeAction={(e) => handleAddress(e)} placeholder={user.address}/>
 
-                <button className='btn btn-primary' type='submit' onClick={(e) => handleSubmit(e)} disabled={isDisabled}>Submit</button>
+                <button className='btn btn-primary' type='submit' disabled={isDisabled}>Submit</button>
             </form>
         </main>);
 };

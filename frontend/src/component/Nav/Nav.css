@@ -54,7 +54,6 @@
 .nav > .nav-tabs > a:hover {
   background-color: rgb(243, 106, 38);
   color: rgb(184, 179, 170);
-  border-radius: 64px;
   transition: 0.5s all ease;
 }
 
