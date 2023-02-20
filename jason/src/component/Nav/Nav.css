@@ -1,0 +1,73 @@
+.main {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Futura';
+}
+
+.nav-container {
+  width:100%;
+  display:flex;
+}
+
+.logo {
+  width: 180px;
+  height: 60px;
+  margin-top: 24px;
+  margin-left: 24px;
+  margin-right: auto;
+}
+
+.nav-menu-icon {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-right: 40px;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.nav-menu-icon:hover {
+  color: rgb(243, 106, 38);
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  background-color: rgb(254, 254, 254);
+  vertical-align: middle;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: 0.8s all ease;
+}
+
+.nav > .nav-tabs > a {
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 16px;
+  padding: 40px 30px;
+  color: rgb(31, 31, 37);
+}
+
+.nav > .nav-tabs > a:hover {
+  background-color: rgb(243, 106, 38);
+  color: rgb(184, 179, 170);
+  border-radius: 64px;
+  transition: 0.5s all ease;
+}
+
+.nav-menu-close-icon {
+  margin-left: auto;
+  font-size: 30px;
+  margin-top: 30px;
+  margin-right: 40px;
+  padding-bottom: 25px;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.nav-menu-close-icon:hover {
+  color: rgb(243, 106, 38);
+}
