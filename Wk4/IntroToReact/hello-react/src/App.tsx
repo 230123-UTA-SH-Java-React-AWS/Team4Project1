@@ -56,9 +56,9 @@ function App() {
     }
   ]
 
-  function dummyFunction(someParam:string) {
+  function dummyFunction(someParam:string) {}
     
-  }
+  
 
   return (
     <div className="App">
@@ -97,5 +97,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
