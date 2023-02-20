@@ -5,7 +5,8 @@ import { useRef, useState, useEffect } from 'react';
 import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const USER_REGEX = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
+const EMAIL_REGEX = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 // const REGISTER_URL = '/register';
@@ -13,6 +14,14 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const Register = () => {
 	const userRef = useRef();
 	const errRef = useRef();
+
+	const [fname, setFname] = useState('');
+
+	const [lname, setLname] = useState('');
+
+	const [email, setEmail] = useState('');
+	const [validEmail, setValidEmail] = useState(false);
+	const [emailFocus, setEmailFocus] = useState(false);
 
 	const [user, setUser] = useState('');
 	const [validName, setValidName] = useState(false);
@@ -32,6 +41,13 @@ const Register = () => {
 	useEffect(() => {
 		userRef.current.focus();
 	}, []);
+
+	useEffect(() => {
+		const result = EMAIL_REGEX.test(email);
+		console.log(result);
+		console.log(email);
+		setValidEmail(result);
+	}, [email]);
 
 	//validate the username
 	useEffect(() => {
@@ -59,7 +75,9 @@ const Register = () => {
 
 		const data = {
 			email: user,
-			password: pwd
+			password: pwd,
+			fname,
+			lname
 		}
 
 		const contentLength = (new TextEncoder().encode(JSON.stringify(data))).length;
@@ -80,13 +98,65 @@ const Register = () => {
 	}
 
 	return (
+		
 		<section>
 			<p ref={errRef} className={errMsg ? "errmsg" : 
 			"offscreen"} aria-live="assertive">{errMsg}</p>
-			<h1>Register</h1>
+			<h1>Bank Registration</h1>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="username">
+				<label htmlFor='fname'>
+					First Name:
+				</label>
+				<input 
+					type="text"
+					id="fname"
+					autoComplete="off"
+					onChange={(e)=> setFname(e.target.value)}
+					required
+					aria-describedby="firstname"
+				/>
+				<label htmlFor='fname'>
+					Last Name:
+				</label>
+				<input 
+					type="text"
+					id="fname"
+					autoComplete="off"
+					onChange={(e)=> setLname(e.target.value)}
+					required
+					aria-describedby="firstname"
+				/>
+
+
+				<label htmlFor="email">
 					Email:
+					<span className={validEmail ? "valid" : "hide"}>
+						<FontAwesomeIcon icon={faCheck} />
+					</span>
+					<span className={validEmail || !email ? "hide" : "invalid"}>
+						<FontAwesomeIcon icon={faTimes} />
+					</span>
+				</label>
+				<input 
+					type="text"
+					id="email"
+					ref={userRef}
+					autoComplete="off"
+					onChange={(e)=> setEmail(e.target.value)}
+					required
+					aria-invalid={validEmail ? "false" : "true"}
+					aria-describedby="emailnote"
+					onFocus={() => setUserFocus(true)}
+					onBlur={() => setUserFocus(false)}
+				/>
+				<p id="emailnote" className={userFocus && email && !validEmail ? "instructions" : "offscreen"}>
+					<FontAwesomeIcon icon={faInfoCircle} />
+					Must be correct email
+				</p>
+
+
+				<label htmlFor="username">
+					Username:
 					<span className={validName ? "valid" : "hide"}>
 						<FontAwesomeIcon icon={faCheck} />
 					</span>
@@ -108,7 +178,9 @@ const Register = () => {
 				/>
 				<p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
 					<FontAwesomeIcon icon={faInfoCircle} />
-					Must be a valid email
+					4 to 24 characters.<br />
+					Must begin with a letter.<br />
+					Letters, numbers, underscores, hyphens allowed.
 				</p>
 
 				<label htmlFor="password">
@@ -162,7 +234,7 @@ const Register = () => {
 					Must re-enter the password.
 				</p>
 
-				<button disabled={!validName || !validPwd || !validMatch ? true : false}> Sign Up </button>
+				<button disabled={fname == undefined || !validName || !validPwd || !validMatch ? true : false}> Sign Up </button>
 			</form>
 			<p>
 				Already registered? <br/>
@@ -172,6 +244,7 @@ const Register = () => {
 				</span>
 			</p>
 		</section>
+		
 	)
 }
 

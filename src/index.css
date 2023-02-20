@@ -8,20 +8,21 @@
 
 html {
     font-family: 'Nunito', sans-serif;
-    font-size: 22px;
+    font-size: 14px;
     color: #fff;
 }
 
 body {
     min-height: 100vh;
-    background-color: rgb(130, 76, 0);
+    /* background-color: rgb(130, 76, 0); */
+    background-image: url("https://raw.githubusercontent.com/230123-UTA-SH-Java-React-AWS/Team4Project1/Jason/BG/Revature%20Hexagon.jpg");
 }
 
 .App {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   min-height: 100vh; 
   padding: 1rem 0.5rem;
 }
@@ -29,12 +30,14 @@ body {
 section {
     width: 100%;
     max-width: 420px;
-    min-height: 400px;
-    display: flex;
+    min-height: 200px;
+    /* display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; */
+    position:fixed; left:730px; top:230px;
+    /* float: right; */
     padding: 1rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: #474c55;
 }
 
 form {
