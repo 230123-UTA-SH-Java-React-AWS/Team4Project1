@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -91,11 +91,19 @@ class Login extends React.Component {
 }
 
 class Home extends React.Component {
-  render() {
+
+  testButton() {
+
+  }
+    render() {
     return (
-      <div>
+      <><div>
         <a>Home</a>
       </div>
+        <div>
+          <button type="submit" className="btn btn-secondary btn-sm">Test</button>
+        </div>
+      </>
     )
   }
 }
@@ -155,7 +163,7 @@ const test2 = ReactDOM.createRoot(document.getElementById("test2"));
 test1.render(<Login />);
 
 //column 2 will hold the component corresponding to the link clicked on the nav bar
- test2.render(<Home />);
+test2.render(<Home />);
 // test2.render(<Account />);
 // test2.render(<History />);
 // test2.render(<Transfer />);
