@@ -8,5 +8,7 @@
 ## Bank app
 ![Prototype DB diagram](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/Jason/MOCK_DB/Team4Project1-DB-prototype.png?raw=true)
 
-![Prototype DB diagram](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/87a8c9a0573e96b20c19c2f3a3174f5d8854fee2/MOCK_DB/postgres%20-%20Team4Project1.png?raw=true)
+![DB Schema](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/87a8c9a0573e96b20c19c2f3a3174f5d8854fee2/MOCK_DB/postgres%20-%20Team4Project1.png?raw=true)
+
+![Frontend login page](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/cb2ffc21f4dca29154616b3bb4ea2db8bd42a055/screenshots/FrontEnd-Screenshot%202023-02-19%20015254.png?raw=true)
 
