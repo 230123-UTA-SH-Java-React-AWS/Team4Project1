@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './Nav.css';
 import Logo from '../../resources/images/rev-logo.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { Link }  from 'react-router-dom'; 
 import { AiOutlineClose } from 'react-icons/ai';
 import { selectUser } from '../Login/UserSlice';
 import { useAppSelector } from '../../shared/Redux/hook';
+import Tabs from './Tabs';
 
 const Nav = () => {
     const user = useAppSelector(selectUser);
@@ -20,12 +20,11 @@ const Nav = () => {
         <nav className='nav-container'>
             <img src={Logo} className='logo' />
             <div className='nav' style={{maxHeight: navHeight}}>
-                <Link to='/'>Home</Link>
                 {
                     user.id === 0 ? (
-                        <Link to='/login'>Login</Link>
+                        <Tabs isLoggedIn={false} />
                     ) : (
-                        <Link to='/profile'>Profile</Link>
+                        <Tabs isLoggedIn={true} />
                     )
                 }
                 <span className='nav-menu-close-icon' onClick={() => handleOnClick()}><AiOutlineClose /></span>

@@ -1,6 +1,7 @@
 package com.revature;
 
 import com.revature.controller.UserProfile;
+import com.revature.controller.UserAccounts;
 import com.revature.controller.UserLogin;
 import com.sun.net.httpserver.HttpServer;
 
@@ -26,6 +27,8 @@ public final class App {
             HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
             server.createContext("/login", new UserLogin());
+            server.createContext("/accounts", new UserAccounts());
+            server.createContext("/accounts/new-account", new UserAccounts());
             server.createContext("/profile", new UserProfile());
 
             server.setExecutor(null);

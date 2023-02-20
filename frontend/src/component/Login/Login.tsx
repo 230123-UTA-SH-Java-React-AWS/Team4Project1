@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../App.css';
 import Nav from '../Nav/Nav';
 import InputField from '../InputField/InputField';
 import axios from 'axios';

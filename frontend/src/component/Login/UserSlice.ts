@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../../model/User';
 import { RootState } from '../../shared/Redux/store';
+import { Account } from '../../model/Account';
 
 const initialState:User = {
     id: 0,
     username: null,
     email: null,
-    password: ""
+    password: "",
+    accounts: [],
 }
 
 const UserSlice = createSlice({
@@ -28,11 +30,16 @@ const UserSlice = createSlice({
             state.username = null;
             state.email = null;
             state.password = "";
+            state.accounts = [];
+        },
+
+        setAccounts: (state, action:PayloadAction<Account[]>) => {
+            state.accounts = [...action.payload];
         }
     }
 })
 
-export const {setUser, setDefault} = UserSlice.actions;
+export const {setUser, setDefault, setAccounts} = UserSlice.actions;
 
 export default UserSlice.reducer;
 

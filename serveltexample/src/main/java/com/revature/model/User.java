@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import java.util.List;
+
 public class User {
     private int id;
     private String fname;
@@ -8,6 +10,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+
+    private List<Account> accounts;
 
     public User() {
         super();
@@ -75,5 +79,12 @@ public class User {
         this.password = password;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
 
 }

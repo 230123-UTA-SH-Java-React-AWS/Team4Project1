@@ -1,3 +1,5 @@
+import { Account } from "./Account";
+
 export interface User {
     id:number,
     fname?:string,
@@ -5,5 +7,6 @@ export interface User {
     address?:string,
     username:string | null,
     email:string | null,
-    password:string
+    password:string,
+    accounts: Account[]
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../../App.css';
 import './Profile.css';
 import Nav from '../Nav/Nav';
 import axios from 'axios';
