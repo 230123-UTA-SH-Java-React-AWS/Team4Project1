@@ -1,0 +1,17 @@
+footer {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+footer > a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(184, 179, 170);
+    padding: 16px;
+    transition: 0.5s all;
+}
+
+footer > a:hover {
+    color: rgb(243, 106, 38);
+}
