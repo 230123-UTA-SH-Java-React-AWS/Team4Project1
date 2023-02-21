@@ -8,4 +8,4 @@ Why? Because the longest substring is "abcd" without repeating characters
 
 string = "aaaaaa"
 Output: 1
-Why? Because the longest substring is a without repeating characters
+Why? Because the longest substring is "a" without repeating characters
