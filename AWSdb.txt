@@ -1,3 +1,0 @@
-PostgreSQL 12.13
-team4
-Testdbtest!
