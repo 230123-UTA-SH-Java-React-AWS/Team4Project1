@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- The class attribute specify where exactly is the class in question that Spring needs to create an object out of -->
+    <bean id="pokemonRepository" class="com.revature.repository.PokemonRepository"
+        init-method="someCustomInitializationMethod"
+        destroy-method="someCustomDestroyMethod">
+
+    </bean>
+
+    <bean id="pokemonService" class="com.revature.service.PokemonService">
+        <!-- Extra configuration for this bean because this class depends on pokemonRepository object -->
+        <constructor-arg ref="pokemonRepository"></constructor-arg>
+    </bean>
+
+    <bean id="pokemon" class="com.revature.model.Pokemon" scope="prototype">
+
+        <!-- This is called Injection Primitives -->
+        <constructor-arg type="String" value="Ditto"></constructor-arg>
+        <constructor-arg type="int" value="1"></constructor-arg>
+        <constructor-arg type="int" value="10"></constructor-arg>
+    </bean>
+</beans>
