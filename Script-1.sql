@@ -1,5 +1,5 @@
-drop table account_types;
 drop table accounts;
+drop table account_types;
 drop table users;
 
 create table users (
@@ -28,3 +28,17 @@ create table accounts (
 	account_type integer references account_types(id) default 1
 );
 insert into accounts (user_id, account_name) values (1, 'test');
+
+create table transaction_types (
+	id integer primary key,
+	transaction_type varchar(50)
+);
+insert into transaction_types (id, transaction_type) values (1, 'INCOME'), (2, 'EXPENSE');
+
+create table transactions (
+	id serial primary key,
+	account_id integer references accounts(id) not null,
+	amount decimal not null,
+	transaction_type integer references transaction_types(id) not null
+);
+insert into transactions (account_id, amount, transaction_type) values (1, 1.00, 1);

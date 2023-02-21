@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../../model/User';
 import { RootState } from '../../shared/Redux/store';
 import { Account } from '../../model/Account';
+import { Transaction } from '../../model/Transaction';
 
 const initialState:User = {
     id: 0,
@@ -35,11 +36,15 @@ const UserSlice = createSlice({
 
         setAccounts: (state, action:PayloadAction<Account[]>) => {
             state.accounts = [...action.payload];
+        },
+
+        setTransactions: (state, action:PayloadAction<Account[]>) => {
+            state.accounts = [...action.payload];
         }
     }
 })
 
-export const {setUser, setDefault, setAccounts} = UserSlice.actions;
+export const {setUser, setDefault, setAccounts, setTransactions} = UserSlice.actions;
 
 export default UserSlice.reducer;
 

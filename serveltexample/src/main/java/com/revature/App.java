@@ -1,6 +1,7 @@
 package com.revature;
 
 import com.revature.controller.UserProfile;
+import com.revature.controller.AccountTransactions;
 import com.revature.controller.UserAccounts;
 import com.revature.controller.UserLogin;
 import com.sun.net.httpserver.HttpServer;
@@ -28,8 +29,10 @@ public final class App {
 
             server.createContext("/login", new UserLogin());
             server.createContext("/accounts", new UserAccounts());
-            server.createContext("/accounts/new-account", new UserAccounts());
             server.createContext("/profile", new UserProfile());
+            server.createContext("/accounts/new-account", new UserAccounts());
+            server.createContext("/accounts/transactions", new AccountTransactions());
+            server.createContext("/accounts/transactions/new-transaction", new AccountTransactions());
 
             server.setExecutor(null);
             server.start();

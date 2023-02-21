@@ -1,11 +1,15 @@
 package com.revature.model;
 
+import java.util.List;
+
 public class Account {
     private int id;
     private int userId;
     private String name;
     private float balance;
     private String type;
+
+    private List<Transaction> transactions;
 
     public Account() {
         super();
@@ -72,4 +76,11 @@ public class Account {
         this.type = type;
     }
 
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
 }

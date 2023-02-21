@@ -1,0 +1,80 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAppSelector } from "../../shared/Redux/hook";
+import InputField from "../InputField/InputField";
+import { selectUser } from "../Login/UserSlice";
+import Nav from "../Nav/Nav";
+
+const NewTransaction = () => {
+    const user = useAppSelector(selectUser);
+
+    let { id } = useParams();
+    let balance = user.accounts.filter((account) => account.id.toString() === id)[0].balance;
+
+    const [amount, setAmount] = useState<number>(1);
+    const [type, setType] = useState<string>('INCOME');
+    const [badRequest, setBadRequest] = useState<string>('');
+
+    const navigate = useNavigate();
+
+    const handleBalance = (event:React.ChangeEvent<HTMLInputElement>) => {
+        if (+event.currentTarget.value > 0) {
+            setAmount(+event.currentTarget.value);
+        }
+    }
+
+    const handleType = (event:React.ChangeEvent<HTMLSelectElement>) => {
+        setType(event.currentTarget.value);
+    }
+
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const data = {
+            accountId: id, 
+            amount: amount,
+            type: type
+        }
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            }
+        };
+        axios.put(`http://localhost:8000/accounts/transactions/new-transaction`, data, config)
+        .then( () => {
+            navigate('/accounts');
+        })
+        .catch( (err) => {
+            console.log(err);
+            setBadRequest('Account Overdrawn');
+        })
+    }
+    
+    const handleCancel = () => {
+        navigate(`/accounts/transactions/${id}`);
+    }
+    
+    return (
+        <main className='main'>
+            <Nav />
+            <form className='form' onSubmit={(e) => handleSubmit(e)}>
+                <h4>Account Balance: {balance}</h4>
+                <InputField inputId='amount' labelValue='Transaction Amount' inputType='number' changeAction={(e) => handleBalance(e)} inputDefault={amount}/>
+                <div className='form-group'>
+                    <label htmlFor='type' className='form-label'>Account Type</label>
+                    <select id='type' onChange={(e) => handleType(e)} className='form-control' value={type}>
+                        <option value='INCOME'>INCOME</option>
+                        <option value='EXPENSE'>EXPENSE</option>
+                    </select>
+                </div>
+                <p className='bad-request'>{badRequest}</p>
+                <button className='btn btn-primary' type='submit' >Submit</button>
+                <button className='btn btn-secondary' type='button' onClick={() => handleCancel()}>Cancel</button>
+            </form>
+        </main>
+    )
+}
+
+export default NewTransaction;
