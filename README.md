@@ -8,23 +8,15 @@
 ## Project 1 Progress:
 # We're making good progress. Keep it up everyone!
 
-* added front end api for transfer task
-* backend and DB integration complete
-* registration connected to DB
 
-* all team members created separate login pages for React understanding
-* redundant tasks designed on the backend were integrated into a single project build
 
-## New Shared DB created:
 ![DB Schema v.2](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/dcd5b8d1246e848fc66b56b3f60eda34c44e6b10/DB/MOCK_DB/postgres%20-%20Team4Project1v.2.png)
 
-As I informed everyone in Teams chat, I've created a DB instance we can all use and test on.
-I'm hosting it through AWS. I'll determine a snapshot frequency and schedule by tomorrow.
-For now, feel free to test at will.
-I've populated the DB with 50 mock entries. The DB is currently live. 
-The DB hostname, port, and credentials can be found on my repo branch.
-(You'll have to switch branches in vscode to see the DB folder since it's hidden in .gitignore)
-If you have issues connecting or finding the credentials, message me in Teams.
+![Home](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/c60218b177df35c3bf8569a71f7b3e06a1bbbc41/screenshots/Home-Screenshot%202023-02-21%20213651.png)
+
+![Login](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/c60218b177df35c3bf8569a71f7b3e06a1bbbc41/screenshots/Login-Screenshot%202023-02-21%20213456.png)
+
+![Registration](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/c60218b177df35c3bf8569a71f7b3e06a1bbbc41/screenshots/regFrontEnd.png)
 
 ## Goals & Expectations
 Focus on completing MVPs by end of week.
