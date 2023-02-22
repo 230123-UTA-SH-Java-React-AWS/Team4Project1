@@ -9,7 +9,46 @@ public class App {
 
     public static int getLongestSubstringLength(String someString)
     {
-        return 0;
+        int repeatCount;
+        int indexPointer;
+        int longestString = 0;
+
+        //we create an array of strings to hold our substrings
+        String[] subs;
+
+        for (int i=0; i<someString.length(); i++) {
+            //for each iteration we check the character one position ahead
+            //if the next character is equal, we start a counter
+            if(someString.charAt(i+1).equalsIgnoreCase()) {
+                repeatCount++;
+
+                //we store the first substring, then we start the process over with the remaining string
+                //we use the pointer so we know where to split() the string
+                indexPointer = i;
+
+                //once we've detected a repeat char, we immediately split the string
+                //we store the first substring
+                //we use repeatCount-1 to account for array index
+                subs[repeatCount-1] = someString.split();
+
+                //we break out of this iteration and continue iterating through the string
+                break;
+            }
+
+            //now that all substrings are stored, we can compare their lengths and return the largest one
+            foreach(String s : subs) {
+                //we check to see if the next subString is larger
+                //if so we reassign longestString
+                //else we break this iteration
+                if(s.length() > longestString){
+                longestString = s.length;
+                } else {break;}
+
+            }
+
+        }
+        //finally we return the longestString
+        return longestString;
     }
     public static void main(String[] args) throws Exception {
         Map<String, Integer> testcases = new HashMap<>();
