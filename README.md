@@ -3,32 +3,40 @@
 ## Project 1 Stack
 * PostgreSQL DB
 * HttpServer/JDBC
-* React/React Redux/Axios frontend
+* React/React Redux/Axios
 
 ## Project 1 Progress:
-* got teams overall progress through code demonstrations
-* all team members able to utilize React and create frontend landing pages
-* all team members able to manipulate components to some extent
-* backend functionality nearing completion
-* switching focus to frontend integration through React Redux/Axios
-* emphasized importance of updating Trello task cards
+# We're making good progress. Keep it up everyone!
 
-* need more practice with React Redux / Routes and using TS instead of JS
-* each team member will maintain their own separate branch for self-study
+* added front end api for transfer task
+* backend and DB integration complete
+* registration connected to DB
 
-* Treyvon's branch has initial integration with DB
-* Chudier's registration front end has validation and will be connected with the project
-* using Treyvon's branch to build from and eventually merge together
+* all team members created separate login pages for React understanding
+* redundant tasks designed on the backend were integrated into a single project build
 
-* team is currently connecting frontend/backend functionality
+## New Shared DB created:
+![DB Schema v.2](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/dcd5b8d1246e848fc66b56b3f60eda34c44e6b10/DB/MOCK_DB/postgres%20-%20Team4Project1v.2.png)
 
-* set a timeframe for MVP completion by the end of this week
+As I informed everyone in Teams chat, I've created a DB instance we can all use and test on.
+I'm hosting it through AWS. I'll determine a snapshot frequency and schedule by tomorrow.
+For now, feel free to test at will.
+I've populated the DB with 50 mock entries. The DB is currently live. 
+The DB hostname, port, and credentials can be found on my repo branch.
+(You'll have to switch branches in vscode to see the DB folder since it's hidden in .gitignore)
+If you have issues connecting or finding the credentials, message me in Teams.
 
-![Frontend login page](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/63124cc6f545baa3e546fcfbcf6276db6ece20f0/screenshots/frontEndTemp.png?raw=true)
+## Goals & Expectations
+Focus on completing MVPs by end of week.
+Integrate frontend and backend using one central DB.
+Make sure everyone can run React project independently.
+Make sure everyone can understand all app functionality and give a basic presentation
 
-![Frontend registration component](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/cb2ffc21f4dca29154616b3bb4ea2db8bd42a055/screenshots/FrontEnd-Screenshot%202023-02-19%20015254.png?raw=true)
+**Everyone should be able to pull the latest project build and run an independent react app.**
 
-![Frontend landing page](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/63124cc6f545baa3e546fcfbcf6276db6ece20f0/screenshots/regFrontEnd.png?raw=true)
+
+## Everyone's doing great. Keep working and studying.
+Jason
 
 
 
