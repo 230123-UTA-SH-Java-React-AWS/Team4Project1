@@ -1,0 +1,206 @@
+.main {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Futura';
+}
+
+.nav-section {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.nav-section > h1 {
+  text-align: left;
+  margin: 48px 20px;
+  width: 75%;
+  font-size: 40px;
+}
+
+.gradient-text {
+  background-image: linear-gradient(45deg, rgb(243, 106, 38), rgb(118, 52, 25));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  padding-bottom: 36px;
+  color: rgb(184, 179, 170);
+  font-size: 16px;
+}
+
+.feature-group {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.feature-icon {
+  display: block;
+  font-size: 60px;
+  margin-bottom: 24px;
+}
+
+.about-section {
+  background-color: rgb(255, 255, 255);
+}
+
+.image-container {
+  width: 400px;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 32px auto;
+  border-radius: 16px;
+}
+
+.text-container {
+  text-align: left;
+  margin: 0 10%;
+  font-size: 16px;
+}
+
+.text-container > p {
+  color:rgb(184, 179, 170);
+  padding-bottom: 32px;
+}
+
+.text-container > h2 {
+  font-size: 36px;
+}
+
+.text-container > h4 {
+  font-size: 26px;
+}
+
+.services-section {
+  background-color: rgb(248, 249, 251);
+}
+
+.services-section > .text-container {
+  margin: 0 20px;
+}
+
+.services-section > .text-container > h2 {
+  padding-top: 24px;
+  font-size: 36px;
+}
+
+.services-section > .text-container > p {
+  padding-bottom: 0px;
+}
+
+.contact-us-container {
+  padding-bottom: 32px;
+}
+
+.contact-us {
+  cursor: pointer;
+  transition: 0.8s all ease;
+}
+
+.contact-us:hover {
+  color: rgb(243, 106, 38);
+}
+
+.contact-us-div {
+  height: 5px;
+  width: 20px;
+  background-color: rgb(243, 106, 38);
+  border-radius: 36px;
+  transition: 0.8s all ease;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  padding-bottom: 36px;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+.service-group {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-image: linear-gradient(45deg, rgb(243, 106, 38), rgb(118, 52, 25));
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.service-group:hover {
+  margin-top: 6px;
+  margin-bottom: 18px;
+  box-shadow: 6px 16px 24px rgb(200, 200, 200);
+}
+
+@media screen and (min-width: 600px ) {
+  .features {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .feature-group {
+    width: 50%;
+    padding: 20px;
+  }
+
+  .image-container {
+    width: 500px;
+    height: 750px;
+  }
+
+  .services {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .service-group {
+    width: 45%;
+    margin: 12px;
+    color: rgb(31, 31, 37);
+    background-image: linear-gradient(45deg, rgb(248, 249, 251), rgb(248, 249, 251));
+    transition: 0.6s all ease;
+  }
+
+  .service-group:hover {
+    background-image: linear-gradient(45deg, rgb(243, 106, 38), rgb(118, 52, 25));
+    color:rgb(255, 255, 255);
+    box-shadow: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .nav-section > h1 {
+    font-size: 70px;
+  }
+
+  .features {
+    font-size: 18px;
+  }
+
+  .feature-icon {
+    font-size: 70px;
+  }
+
+  .image-container {
+    width: 700px;
+    height: 1050px;
+  }
+
+  .text-container {
+    margin: 0 5%;
+  }
+}

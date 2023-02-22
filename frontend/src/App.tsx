@@ -5,7 +5,7 @@ import navBackgroundImg from './resources/images/vector-jan-2021-19_generated.jp
 import { loremIpsum } from 'react-lorem-ipsum';
 import { MdAccountBalanceWallet, MdAccountBalance, MdAccountBox } from 'react-icons/md';
 import aboutBackgroundImg from './resources/images/vecteezy_businessman-hand-working-with-finances-about-cost-and__23.jpg';
-import { useState } from '';
+import { useState } from 'react';
 
 const App = () => { 
 
