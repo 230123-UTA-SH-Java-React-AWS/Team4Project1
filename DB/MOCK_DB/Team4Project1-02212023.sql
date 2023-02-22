@@ -35,9 +35,12 @@ select * from users
 select * from accounts
 select * from account_types
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 ---------------------MOCK DATA--------------------------------
 
 insert into users (id, fname, lname, address, username, email, pass) values (1, 'Murdoch', 'Redfield', '61 8th Road', 'mredfield0', 'mredfield0@boston.com', 'iWFC1hNqiDE');
@@ -145,6 +148,7 @@ insert into accounts (id, user_id, account_name, balance, account_type) values (
 
 
 
+<<<<<<< Updated upstream
 
 
 
@@ -152,3 +156,5 @@ insert into accounts (id, user_id, account_name, balance, account_type) values (
 
 
 
+=======
+>>>>>>> Stashed changes
