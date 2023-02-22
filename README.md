@@ -16,7 +16,7 @@
 
 ![Login](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/c60218b177df35c3bf8569a71f7b3e06a1bbbc41/screenshots/Login-Screenshot%202023-02-21%20213456.png)
 
-![Registration](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/c60218b177df35c3bf8569a71f7b3e06a1bbbc41/screenshots/regFrontEnd.png)
+![Registration](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/2cf18eb487ffb96b8c80587f1d49f26fd61c9aca/screenshots/Reg-Screenshot%202023-02-21%20221527.png)
 
 ## Goals & Expectations
 Focus on completing MVPs by end of week.
