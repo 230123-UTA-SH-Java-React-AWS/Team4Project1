@@ -1,0 +1,10 @@
+PostgreSQL 12.13
+
+Endpoint
+ls-3009ba528ea2cf4d9dee0625f762224ed6d5cb96.cspmhkft7u9w.us-east-1.rds.amazonaws.com
+
+Port
+5432
+
+team4
+Testdbtest!
