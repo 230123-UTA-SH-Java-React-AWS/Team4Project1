@@ -13,8 +13,10 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.model.Account;
+import com.revature.model.Transaction;
 import com.revature.model.User;
 import com.revature.service.AccountService;
+import com.revature.service.TransactionService;
 import com.sun.net.httpserver.HttpHandler;
 
 import com.sun.net.httpserver.HttpExchange;
@@ -78,6 +80,18 @@ public class UserAccounts implements HttpHandler {
             }
             Account account = mapper.readValue(stringBuilder.toString(), Account.class);
             service.saveAccount(account);
+
+            // account = service.findAccount(account);
+            // System.out.println(account.getId());
+            // if (account.getBalance() > 0) {
+            // Transaction initialBalance = new Transaction();
+            // initialBalance.setAccountId(account.getId());
+            // initialBalance.setAmount(account.getBalance());
+            // initialBalance.setType("INCOME");
+
+            // TransactionService transactionService = new TransactionService();
+            // transactionService.saveTransaction(initialBalance);
+            // }
 
             exchange.sendResponseHeaders(200, -1);
             exchange.close();
