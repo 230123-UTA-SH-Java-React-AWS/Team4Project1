@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../shared/Redux/hook';
 import { setUser } from './UserSlice';
 import { useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -35,6 +36,9 @@ const Login = () => {
                 'Content-Type': 'application/json; charset=UTF-8',
             }
         };
+
+       
+
         axios.post(`http://localhost:8000/login`, data, config)
         .then( (res) => {
             dispatch(setUser(res.data));
