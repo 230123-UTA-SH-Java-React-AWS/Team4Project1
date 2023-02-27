@@ -29,7 +29,7 @@ const Transactions = () => {
                     'Content-Type': 'application/json; charset=UTF-8',
                 }
             };
-            axios.post(`http://localhost:8000/accounts/transactions`, data, config)
+            axios.post(`http://localhost:5432/accounts/transactions`, data, config)
             .then( (res) => {
                 let newAccount:Account = {
                     id: oldAccount.id,
