@@ -51,6 +51,7 @@ public class AccountRepository {
                 } else
                     foundAccount.setType("SAVING");
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
