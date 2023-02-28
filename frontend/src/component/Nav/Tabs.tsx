@@ -36,3 +36,4 @@ const Tabs = ({isLoggedIn}:Props) => {
 }
 
 export default Tabs;
+//

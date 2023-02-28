@@ -1,27 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../../shared/Redux/hook";
 import InputField from "../InputField/InputField";
 import { selectUser } from "../Login/UserSlice";
 import Nav from "../Nav/Nav";
 
-const NewAccount = () => {
+const NewTransaction = () => {
     const user = useAppSelector(selectUser);
 
-    const [name, setName] = useState<string>('');
-    const [balance, setBalance] = useState<number>(0);
-    const [type, setType] = useState<string>('CHECKING');
+    let { id } = useParams();
+    let balance = user.accounts.filter((account) => account.id.toString() === id)[0].balance;
+
+    const [amount, setAmount] = useState<number>(1);
+    const [type, setType] = useState<string>('INCOME');
+    const [badRequest, setBadRequest] = useState<string>('');
 
     const navigate = useNavigate();
 
-    const handleName = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.currentTarget.value);
-    }
-
     const handleBalance = (event:React.ChangeEvent<HTMLInputElement>) => {
-        if (+event.currentTarget.value >= 0) {
-            setBalance(+event.currentTarget.value);
+        if (+event.currentTarget.value > 0) {
+            setAmount(+event.currentTarget.value);
         }
     }
 
@@ -33,9 +32,8 @@ const NewAccount = () => {
         event.preventDefault();
 
         const data = {
-            userId: user.id, 
-            name: name,
-            balance: balance,
+            accountId: id, 
+            amount: amount,
             type: type
         }
 
@@ -44,32 +42,34 @@ const NewAccount = () => {
                 'Content-Type': 'application/json; charset=UTF-8',
             }
         };
-        axios.put(`http://localhost:8000/accounts/new-account`, data, config)
+        axios.put(`http://localhost:8000/accounts/transactions/new-transaction`, data, config)
         .then( () => {
             navigate('/accounts');
         })
         .catch( (err) => {
             console.log(err);
+            setBadRequest('Account Overdrawn');
         })
     }
-
+    
     const handleCancel = () => {
-        navigate('/accounts');
+        navigate(`/accounts/transactions/${id}`);
     }
     
     return (
         <main className='main'>
             <Nav />
             <form className='form' onSubmit={(e) => handleSubmit(e)}>
-                <InputField inputId='name' labelValue='Account Name' changeAction={(e) => handleName(e)} placeholder='Name your account'required={true}/>
-                <InputField inputId='balance' labelValue='Initial Account Balance' inputType='number' changeAction={(e) => handleBalance(e)} inputDefault={balance}/>
+                <h4>Account Balance: {balance}</h4>
+                <InputField inputId='amount' labelValue='Transaction Amount' inputType='number' changeAction={(e) => handleBalance(e)} inputDefault={amount}/>
                 <div className='form-group'>
                     <label htmlFor='type' className='form-label'>Account Type</label>
                     <select id='type' onChange={(e) => handleType(e)} className='form-control' value={type}>
-                        <option value='CHECKING'>CHECKING</option>
-                        <option value='SAVING'>SAVING</option>
+                        <option value='INCOME'>INCOME</option>
+                        <option value='EXPENSE'>EXPENSE</option>
                     </select>
                 </div>
+                <p className='bad-request'>{badRequest}</p>
                 <button className='btn btn-primary' type='submit' >Submit</button>
                 <button className='btn btn-secondary' type='button' onClick={() => handleCancel()}>Cancel</button>
             </form>
@@ -77,5 +77,5 @@ const NewAccount = () => {
     )
 }
 
-export default NewAccount;
+export default NewTransaction;
 //
