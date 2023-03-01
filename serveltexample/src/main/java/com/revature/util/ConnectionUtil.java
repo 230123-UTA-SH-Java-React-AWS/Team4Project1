@@ -22,12 +22,10 @@ public class ConnectionUtil {
 
         String url = System.getenv("url"),
                 user = System.getenv("user"),
-                password = System.getenv("pass");
+                password = System.getenv("password");
 
         try {
-            //connection = DriverManager.getConnection(url, user, password);
-            
-            connection = DriverManager.getConnection(url, user, "");
+            connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }

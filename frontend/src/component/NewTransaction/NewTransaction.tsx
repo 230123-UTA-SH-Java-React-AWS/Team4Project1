@@ -78,4 +78,3 @@ const NewTransaction = () => {
 }
 
 export default NewTransaction;
-//

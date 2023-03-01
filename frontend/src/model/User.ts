@@ -10,4 +10,3 @@ export interface User {
     password:string,
     accounts: Account[]
 }
-//

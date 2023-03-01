@@ -1,5 +1,7 @@
 package com.revature.controller;
 
+import com.sun.net.httpserver.HttpHandler;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,15 +16,12 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.model.Account;
 import com.revature.model.Transaction;
-import com.revature.model.User;
 import com.revature.service.AccountService;
 import com.revature.service.TransactionService;
-import com.sun.net.httpserver.HttpHandler;
-
 import com.sun.net.httpserver.HttpExchange;
 
-public class UserAccounts implements HttpHandler {
-    private AccountService service = new AccountService();
+public class AccountTransactions implements HttpHandler {
+    private TransactionService service = new TransactionService();
 
     private void optionsRequest(HttpExchange exchange) {
         try {
@@ -51,10 +50,10 @@ public class UserAccounts implements HttpHandler {
             while ((c = reader.read()) != -1) {
                 stringBuilder.append((char) c);
             }
-            User user = mapper.readValue(stringBuilder.toString(), User.class);
-            List<Account> accounts = service.getAllAccounts(user);
+            Account account = mapper.readValue(stringBuilder.toString(), Account.class);
+            List<Transaction> transactions = service.getAllAccounts(account);
 
-            String response = mapper.writeValueAsString(accounts);
+            String response = mapper.writeValueAsString(transactions);
             OutputStream os = exchange.getResponseBody();
             exchange.sendResponseHeaders(200, response.getBytes().length);
             os.write(response.getBytes());
@@ -78,22 +77,27 @@ public class UserAccounts implements HttpHandler {
             while ((c = reader.read()) != -1) {
                 stringBuilder.append((char) c);
             }
-            Account account = mapper.readValue(stringBuilder.toString(), Account.class);
-            service.saveAccount(account);
+            Transaction transaction = mapper.readValue(stringBuilder.toString(), Transaction.class);
 
-            // account = service.findAccount(account);
-            // System.out.println(account.getId());
-            // if (account.getBalance() > 0) {
-            // Transaction initialBalance = new Transaction();
-            // initialBalance.setAccountId(account.getId());
-            // initialBalance.setAmount(account.getBalance());
-            // initialBalance.setType("INCOME");
+            Account account = new Account();
+            account.setId(transaction.getAccountId());
+            AccountService accountService = new AccountService();
+            account = accountService.findAccount(account);
 
-            // TransactionService transactionService = new TransactionService();
-            // transactionService.saveTransaction(initialBalance);
-            // }
-
-            exchange.sendResponseHeaders(200, -1);
+            if (transaction.getType().equals("INCOME")) {
+                account.setBalance(account.getBalance() + transaction.getAmount());
+                accountService.updateAccount(account);
+                service.saveTransaction(transaction);
+                exchange.sendResponseHeaders(200, -1);
+            } else {
+                account.setBalance(account.getBalance() - transaction.getAmount());
+                if (accountService.updateAccount(account)) {
+                    service.saveTransaction(transaction);
+                    exchange.sendResponseHeaders(200, -1);
+                } else {
+                    exchange.sendResponseHeaders(400, -1);
+                }
+            }
             exchange.close();
         } catch (Exception e) {
             e.printStackTrace();

@@ -23,6 +23,16 @@ public class User {
         this.password = password;
     }
 
+    public User(int id, String fname, String lname, String address, String username, String email, String password) {
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.address = address;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

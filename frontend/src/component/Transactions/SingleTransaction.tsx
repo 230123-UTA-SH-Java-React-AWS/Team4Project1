@@ -14,4 +14,3 @@ const SingleTransaction = ({transaction}:Props) => {
 }
 
 export default SingleTransaction;
-//
