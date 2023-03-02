@@ -10,6 +10,27 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserRepository {
+
+    public void save(User user) {
+        System.out.println("HERE");
+        String sql = "INSERT INTO users (fname, lname, address, username, email, pass) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = ConnectionUtil.getConnection()) {
+            PreparedStatement prstmt = connection.prepareStatement(sql);
+
+            prstmt.setString(1, user.getFname());
+            prstmt.setString(2, user.getLname());
+            prstmt.setString(3, user.getAddress());
+            prstmt.setString(4, user.getUsername());
+            prstmt.setString(5, user.getEmail());
+            prstmt.setString(6, user.getPassword());
+
+            prstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public User findUser(User user) {
         String sql = "SELECT * FROM users WHERE email = \'" + user.getEmail() + "\'";
         User foundUser = new User();

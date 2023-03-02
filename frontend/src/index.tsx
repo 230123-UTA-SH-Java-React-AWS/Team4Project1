@@ -14,6 +14,7 @@ import Accounts from './component/Accounts/Accounts';
 import Transactions from './component/Transactions/Transactions';
 import NewTransaction from './component/NewTransaction/NewTransaction';
 import TransferFunds from './component/TransferFunds/TransferFunds';
+import Register from './component/Register/Register';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,6 +26,7 @@ root.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/accounts/new-account' element={<NewAccount />} />

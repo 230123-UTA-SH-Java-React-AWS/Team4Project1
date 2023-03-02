@@ -2,6 +2,7 @@ package com.revature;
 
 import com.revature.controller.UserProfile;
 import com.revature.controller.AccountTransactions;
+import com.revature.controller.RegisterUser;
 import com.revature.controller.TransferFunds;
 import com.revature.controller.UserAccounts;
 import com.revature.controller.UserLogin;
@@ -29,6 +30,7 @@ public final class App {
             HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
 
             server.createContext("/login", new UserLogin());
+            server.createContext("/register", new RegisterUser());
             server.createContext("/accounts", new UserAccounts());
             server.createContext("/profile", new UserProfile());
             server.createContext("/accounts/new-account", new UserAccounts());

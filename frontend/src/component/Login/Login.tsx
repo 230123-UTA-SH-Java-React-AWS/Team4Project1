@@ -22,6 +22,10 @@ const Login = () => {
         setPassword(e.currentTarget.value);
     }
 
+    const handleClick = () => {
+        navigate('/register');
+    }
+
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -54,6 +58,7 @@ const Login = () => {
                 <InputField inputId='password' labelValue='Password' inputType='password' changeAction={(e) => handlePassword(e)} required={true}/>
 
                 <button className='btn btn-primary' type='submit'>Login</button>
+                <button className='btn btn-secondary' type='button' onClick={() => handleClick()}>Register</button>
                 <p className='bad-request'>{badRequest}</p>
             </form>
         </main>
