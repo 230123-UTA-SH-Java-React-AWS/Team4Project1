@@ -6,6 +6,7 @@ import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
+import Nav from '../Nav/Nav';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -103,19 +104,12 @@ const Register = () => {
 
 	return (
 		<>
-			{success ? (
-                <section>
-                    <h1>Success!</h1>
-                    <p>
-						<Link to='/login'>Sign In</Link>
-                    </p>
-                </section>
-            ) : (
-				<section>
+			<section className='register-section' style={{backgroundImage:'url("https://raw.githubusercontent.com/230123-UTA-SH-Java-React-AWS/Team4Project1/Jason/BG/Revature%20Hexagon.jpg")'}} >
+                    <Nav />
 					<p ref={errRef} className={errMsg ? "errmsg" : 
 					"offscreen"} aria-live="assertive">{errMsg}</p>
-					<h1>Bank Registration</h1>
-					<form onSubmit={(e) => handleSubmit(e)}>
+					<form className='register-form' onSubmit={(e) => handleSubmit(e)}>
+					    <h1>Bank Registration</h1>
 						<label htmlFor='fname'>
 							First Name:
 						</label>
@@ -243,16 +237,14 @@ const Register = () => {
 						</p>
 
 						<button disabled={fname == undefined || !validName || !validPwd || !validMatch ? true : false}> Sign Up </button>
+                        <p>
+                            Already registered? <br/>
+                            <span className="line">
+                                <Link className='register-link' to='/login'>Sign In</Link>
+                            </span>
+                        </p>
 					</form>
-					<p>
-						Already registered? <br/>
-						<span className="line">
-							<Link to='/login'>Sign In</Link>
-						</span>
-					</p>
 				</section>
-				)
-			}
 		</>
 	)
 }
