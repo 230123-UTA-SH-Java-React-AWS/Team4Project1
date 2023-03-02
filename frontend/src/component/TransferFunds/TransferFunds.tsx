@@ -9,6 +9,8 @@ import Nav from "../Nav/Nav";
 const TransferFunds = () => {
      const user = useAppSelector(selectUser);
 
+     const [disable, setDisable] = useState<boolean>(true);
+
     let { id } = useParams();
     let balance = user.accounts.filter((account) => account.id.toString() === id)[0].balance;
 
@@ -25,7 +27,10 @@ const TransferFunds = () => {
     }
 
     const handleDestinationAccount = (event:React.ChangeEvent<HTMLSelectElement>) => {
-        setDestinationAccount(event.currentTarget.value);
+        if (event.target.value != '') {
+            setDestinationAccount(event.currentTarget.value);
+            setDisable(false);
+        }
     }
 
     const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
@@ -71,7 +76,7 @@ const TransferFunds = () => {
                     </select>
                 </div>
                 <p className='bad-request'>{badRequest}</p>
-                <button className='btn btn-primary' type='submit' >Submit</button>
+                <button className='btn btn-primary' type='submit' disabled={disable}>Submit</button>
                 <button className='btn btn-secondary' type='button' onClick={() => handleCancel()}>Cancel</button>
             </form>
         </main>

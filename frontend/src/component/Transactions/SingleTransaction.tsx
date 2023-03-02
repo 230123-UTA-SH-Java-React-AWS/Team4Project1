@@ -8,7 +8,7 @@ const SingleTransaction = ({transaction}:Props) => {
     return (
         <tr>
             <td>{transaction.amount}</td>
-            <td>{transaction.type}</td>
+            <td>{transaction.type == "EXPENSE" ? "WITHDRAWAL": "DEPOSIT"}</td>
         </tr>
     )
 }
