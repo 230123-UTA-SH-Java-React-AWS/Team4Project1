@@ -8,16 +8,27 @@ import com.revature.repository.UserRepository;
 public class UserService {
     private UserRepository repository = new UserRepository();
 
+    public boolean save(User user) {
+        User foundUser = repository.findUser(user);
+        if (foundUser.getEmail() == null) {
+            repository.save(user);
+            return true;
+        } else
+            return false;
+    }
+
     public Optional<User> findUser(User user) {
         User foundUser = repository.findUser(user);
 
         if (foundUser.getEmail() != null) {
             if (foundUser.getPassword().equals(user.getPassword())) {
                 return Optional.of(foundUser);
-            } else
+            } else {
                 return Optional.ofNullable(null);
-        } else
+            }
+        } else {
             return Optional.ofNullable(null);
+        }
     }
 
     public User updateUser(User user) {
