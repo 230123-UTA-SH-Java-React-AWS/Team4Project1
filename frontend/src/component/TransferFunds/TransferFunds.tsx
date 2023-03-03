@@ -66,7 +66,7 @@ const TransferFunds = () => {
                 <div className='form-group'>
                     <label htmlFor='type' className='form-label'>Account Type</label>
                     <select id='type' onChange={(e) => handleDestinationAccount(e)} className='form-control' value={destinationAccount}>
-                        <option value=''>Acconts</option>
+                        <option value=''>Accounts</option>
                         {user.accounts.filter((account) => account.id.toString() !== id).map((account) => <option key={account.id} value={account.id}>{account.name}</option>)}
                     </select>
                 </div>
