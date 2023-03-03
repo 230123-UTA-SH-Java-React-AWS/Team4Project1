@@ -1,69 +1,56 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); */
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-/* html {
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    color: #fff;
-} */
-
-/* body {
-    min-height: 100vh;
-    background-color: rgb(130, 76, 0);
-    background-image: url("https://raw.githubusercontent.com/230123-UTA-SH-Java-React-AWS/Team4Project1/Jason/BG/Revature%20Hexagon.jpg");
-} */
-
-/* .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  min-height: 100vh; 
-  padding: 1rem 0.5rem;
-} */
-
 .register-section {
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+.register-form h1 {
+    color: #000000;
+    margin: 0 0 15px;
+    position: relative;
+    text-align: center;
+}
+
 .register-form {
+    margin: 64px auto;
+    border: 2px solid rgb(184, 179, 170);
+    border-radius: 30px;
+    padding: 16px;
+    box-shadow: inset 0 0 5px black;
+    max-width: 450px;
+    font-family: 'Futura';
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    flex-grow: 1;
-    padding: 1rem;
-    background-color: #474c55;
-    max-width: 450px;
-    margin: 64px auto;
 }
 
 .register-link, .register-link:visited {
-    color: #fff;
+    color: #F26925;
 }
 
 .register-form > input[type="text"],
 .register-form > input[type="password"],
 .register-form > button,
 .register-form > textarea {
-  font-family: 'Nunito', sans-serif;
-  font-size: 22px;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
+  font-family: 'Futura';
+  font-size: 1rem;
+  padding: 0.20rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
 }
 
 .register-form > label,
 .register-form > button {
   margin-top: 1rem;
+  
 }
 
 .register-form > button {
   padding: 0.5rem;
+  font-family: 'Futura';
+}
+
+.register-form > button:not(:disabled) {
+    background: #0d6efd;
+    color: #fff;
 }
 
 .instructions {

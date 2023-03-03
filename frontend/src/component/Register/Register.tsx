@@ -12,8 +12,6 @@ const EMAIL_REGEX = /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/;
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-// const REGISTER_URL = '/register';
-
 const Register = () => {
 	const userRef = useRef<HTMLInputElement>(null);
 	const errRef = useRef<HTMLParagraphElement>(null);
@@ -104,14 +102,14 @@ const Register = () => {
 
 	return (
 		<>
-			<section className='register-section' style={{backgroundImage:'url("https://raw.githubusercontent.com/230123-UTA-SH-Java-React-AWS/Team4Project1/Jason/BG/Revature%20Hexagon.jpg")'}} >
+			<section className='register-section'>
                     <Nav />
 					<p ref={errRef} className={errMsg ? "errmsg" : 
 					"offscreen"} aria-live="assertive">{errMsg}</p>
 					<form className='register-form' onSubmit={(e) => handleSubmit(e)}>
 					    <h1>Bank Registration</h1>
 						<label htmlFor='fname'>
-							First Name:
+							First Name
 						</label>
 						<input 
 							type="text"
@@ -123,7 +121,7 @@ const Register = () => {
 						/>
 						
 						<label htmlFor='lname'>
-							Last Name:
+							Last Name
 						</label>
 						<input 
 							type="text"
@@ -134,7 +132,7 @@ const Register = () => {
 						/>
 
 						<label htmlFor="email">
-							Email:
+							Email
 							<span className={validEmail ? "valid" : "hide"}>
 								<FontAwesomeIcon icon={faCheck} />
 							</span>
@@ -186,7 +184,7 @@ const Register = () => {
 						</p>
 
 						<label htmlFor="password">
-							Password:
+							Password
 							<span className={validPwd ? "valid" : "hide"}>
 								<FontAwesomeIcon icon={faCheck} />
 							</span>
@@ -212,7 +210,7 @@ const Register = () => {
 						</p>
 
 						<label htmlFor="confirm_pwd">
-							Confirm Password:
+							Confirm Password
 							<span className={validMatch && matchPwd ? "valid": "hide"}>
 								<FontAwesomeIcon icon={faCheck} />
 							</span>
