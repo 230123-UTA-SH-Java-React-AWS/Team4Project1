@@ -63,10 +63,10 @@ const NewTransaction = () => {
                 <h4>Account Balance: {balance}</h4>
                 <InputField inputId='amount' labelValue='Transaction Amount' inputType='number' changeAction={(e) => handleBalance(e)} inputDefault={amount}/>
                 <div className='form-group'>
-                    <label htmlFor='type' className='form-label'>Account Type</label>
+                    <label htmlFor='type' className='form-label'>Transaction Type</label>
                     <select id='type' onChange={(e) => handleType(e)} className='form-control' value={type}>
-                        <option value='INCOME'>INCOME</option>
-                        <option value='EXPENSE'>EXPENSE</option>
+                        <option value='INCOME'>DEPOSIT</option>
+                        <option value='EXPENSE'>WITHDRAWAL</option>
                     </select>
                 </div>
                 <p className='bad-request'>{badRequest}</p>
