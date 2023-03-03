@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from '../Nav/Nav';
+import Nav from '../Nav/Nav'
 import InputField from '../InputField/InputField';
 import axios from 'axios';
 import { useAppDispatch } from '../../shared/Redux/hook';
@@ -54,6 +54,7 @@ const Login = () => {
         <main className='main'>
             <Nav />
             <form className='form' onSubmit={(e) => handleSubmit(e)}>
+                <h1>Bank Login</h1>
                 <InputField inputId='email' labelValue='Email' inputType='email' changeAction={(e) => handleEmail(e)} required={true}/>
                 <InputField inputId='password' labelValue='Password' inputType='password' changeAction={(e) => handlePassword(e)} required={true}/>
 
