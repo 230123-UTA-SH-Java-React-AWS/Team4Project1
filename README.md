@@ -1,10 +1,31 @@
 # Team 4 a.k.a "Work in Progress"
 
-## Project 1 Stack
+## Project 1 - Bank App
 * PostgreSQL DB
 * HttpServer/JDBC
 * React/React Redux/Axios
 
+
+### React Frontend
+JSX and TSX, HTML, CSS
+
+### Team Structure
+Team Lead
+Jason
+Frontend/Backend
+Chudier
+Jahi
+Treyvon
+
+### Agile/Scrum Implementation
+Trello
+Teams
+Zoom
+GitHub
+
+
+## Goals and Expectations:
+Project completed build 1.4
 
 
 ![DB Schema v.2](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/1afa35a0992c4334a837c03373cc11aed10059fd/DB/postgres%20-%20Team4Project1build1.1.png)
@@ -14,8 +35,6 @@
 ![History](https://github.com/230123-UTA-SH-Java-React-AWS/Team4Project1/blob/1afa35a0992c4334a837c03373cc11aed10059fd/screenshots/history-Screenshot%202023-02-28%20172538.png)
 
 
-## Goals and Expectations:
-Any new features should be made on a new branch of the default build v1.1.
 Submit pull requests if/when a feature is ready.
 
 * code freeze Wednesday midnight
