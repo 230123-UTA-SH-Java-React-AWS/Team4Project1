@@ -3,7 +3,6 @@
 ## Project 1 - Bank App
 User Stories:
 * The user should be able to register/login/logout
-* The user should be able to 
 * The user can update profile information
 * The user can open new accounts
 * The user can create new transactions (deposits/withdrawals)
