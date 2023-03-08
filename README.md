@@ -17,11 +17,10 @@ User Stories:
 ### React Frontend
 JSX and TSX, HTML, CSS
 
-### Team Structure
-Team Lead
+## Team Structure
+### Team Lead
 * Jason
-<br />
-Frontend/Backend
+### Frontend/Backend
 * Chudier
 * Jahi
 * Treyvon
