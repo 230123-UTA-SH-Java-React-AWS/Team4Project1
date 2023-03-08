@@ -20,6 +20,7 @@ JSX and TSX, HTML, CSS
 ### Team Structure
 Team Lead
 * Jason
+<br />
 Frontend/Backend
 * Chudier
 * Jahi
